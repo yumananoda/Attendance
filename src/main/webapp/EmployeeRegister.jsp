@@ -10,7 +10,7 @@
     <h2>従業員登録</h2>
     <form id="employeeForm">
         <div class="input-group">
-            <label for="employeeName">名前:</label>
+            <label for="employeeName">名前:</label> <!-- forでinputで紐づけ -->
             <input type="text" name="name" id="employeeName" required><br>
         </div>
         <div class="input-group">
@@ -28,9 +28,10 @@
                 <label for="part">アルバイト</label>
             </div>
         </div>
-        <button type="submit" id="register">登録</button>
+        <button type="submit" id="addemployee">追加</button>
     </form>
+    <button type="submit" id="register">登録</button>
     <div id="registerUser"></div>
-    <script src="js/register.js" ></script>
+    <script src="js/employeeRegister.js" ></script>
 </body>
 </html>

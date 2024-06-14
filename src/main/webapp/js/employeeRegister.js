@@ -5,22 +5,22 @@ const POSITION_NAME = {
   2: "アルバイト",
 };
 
-let empForm = document.getElementById("employeeForm");
-const func = () => {
-  const div = document.createElement("div");
-  div.className = "input-group";
-  const label = document.createElement("label");
-  label.htmlFor = "employeeName";
-  //   label.setAttribute("for", "employeeName");
-  const input = document.createElement("input");
-  input.htmlFor = "employeeName";
-  const div2 = document.createElement("/div");
+// let empForm = document.getElementById("employeeForm");
+// const func = () => {
+//   const div = document.createElement("div");
+//   div.className = "input-group";
+//   const label = document.createElement("label");
+//   label.htmlFor = "employeeName";
+//   //   label.setAttribute("for", "employeeName");
+//   const input = document.createElement("input");
+//   input.htmlFor = "employeeName";
+//   const div2 = document.createElement("/div");
 
-  const div3 = document.createElement("div");
-  appendChild;
-};
+//   const div3 = document.createElement("div");
+//   appendChild;
+// };
 
-function func2() {}
+// function func2() {}
 
 const info = [];
 
@@ -32,7 +32,7 @@ const obj = {
 
 let form = document.getElementById("employeeForm");
 form.addEventListener("submit", function (event) {
-  event.preventDefault();
+  event.preventDefault(); //普通の動きを止める
   const inputContent = document.getElementById("employeeForm");
   let inputname = inputContent.name.value;
   let inputemail = inputContent.email.value;
@@ -63,6 +63,9 @@ const registerShow = () => {
   }
 };
 
+let register = document.getElementById("register");
+register.href = "/DateTime/EmployeeRegisterServlet";
+col.appendChild(register);
 // const pEl = ce("p");
 // const ce = (el) => document.createElement(el);
 // const gebi = (id) => document.getElementById(id);
