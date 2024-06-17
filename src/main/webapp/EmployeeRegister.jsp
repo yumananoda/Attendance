@@ -28,9 +28,14 @@
                 <label for="part">アルバイト</label>
             </div>
         </div>
+        <div>
+            <label for="hire_date">入社日:</label>
+            <input type="date" id="hire_date" name="hire_date" required>
+        </div>
+        
         <button type="submit" id="addemployee">追加</button>
+        <button id="register">登録</button>
     </form>
-    <button type="submit" id="register">登録</button>
     <div id="registerUser"></div>
     <script src="js/employeeRegister.js" ></script>
 </body>

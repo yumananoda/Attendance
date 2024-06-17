@@ -22,14 +22,14 @@ public class UserDao extends CommonDao {
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
 				int employeeCD = rs.getInt("employeeCD");
+                String name = rs.getString("name");
+                String email = rs.getString("email");
 				String password = rs.getString("password");
-				String name = rs.getString("name");
 				int storeCD = rs.getInt("storeCD");
 				Date hire_date = rs.getDate("hire_date");
-				String position = rs.getString("position");
+				int position = rs.getString("position");
 				
-
-				UserBean user  = new UserBean(employeeCD, storeCD, name, password, position, hire_date);
+				UserBean user  = new UserBean(employeeCD, name, email, password, storeCD, hire_date, position);
 				System.out.println(user.getName());
 				return user;
 			}
