@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import models.UserBean;
@@ -33,33 +34,26 @@ public class EmployeeRegisterServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		ArrayList<UserBean> EmployeeRegisterList = new ArrayList<>();
 		StringBuilder sb = new StringBuilder();
-		BufferedReader reader = request.getReader();
-		System.out.println(reader);
 		String line;
-		while ((line = reader.readLine()) != null) {
-			System.out.println(line);
-		}
-		String requestBody = sb.toString();
-		System.out.println("ここ0");
+		BufferedReader reader = request.getReader();
 		
+		
+		while ((line = reader.readLine()) != null) {
+			
+		}
+		String requestBody = sb.toString();		
 		ObjectMapper objectMapper = new ObjectMapper();
-		System.out.println("ここ１");
-		List<Map<String, Object>> dataList = objectMapper.readValue(requestBody, List.class);
+		 //List<Map<String, Object>> dataList = objectMapper.readValue(requestBody, List.class);
+		List<Map<String, Object>> dataList = objectMapper.readValue(sb.toString(), new TypeReference<List<Map<String, Object>>>() {});
 		
 		for(Map<String, Object> data: dataList) {
 			String name = (String) data.get("name");
@@ -68,16 +62,19 @@ public class EmployeeRegisterServlet extends HttpServlet {
 			String hire_date = (String) data.get("hire_date");
 			LocalDate localDate = LocalDate.parse(hire_date);
 			Date sqlDate = Date.valueOf(localDate);
-			System.out.println("ここ１");
-//			int storeCD = 2;
-//			
-//			GeneratorPassword generatorPassword = new GeneratorPassword();
-//			String password = generatorPassword.generate();
-//			int employeeCD=2;
-//			System.out.println("ここ3");
-//			
-//			UserBean EmployeeRegisterRequest = new UserBean(employeeCD, storeCD, position, name, password, email, sqlDate);
-//			EmployeeRegisterList.add(EmployeeRegisterRequest);
+			
+			// int storeCD = 2;
+			
+			// GeneratorPassword generatorPassword = new GeneratorPassword();
+			// String password = generatorPassword.generate();
+			// int employeeCD=2;
+			
+			// UserBean EmployeeRegisterRequest = new UserBean(employeeCD, storeCD, position, name, password, email, sqlDate);
+			// EmployeeRegisterList.add(EmployeeRegisterRequest);
+
+			response.setContentType("text/plain");
+			response.setCharacterEncoding("UTF-8");
+			response.getWriter().write("データが正常に受信されました");
 		}
 		
 	}

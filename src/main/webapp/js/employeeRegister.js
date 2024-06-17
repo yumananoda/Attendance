@@ -11,7 +11,7 @@ const POSITION_NAME = {
 //   div.className = "input-group";
 //   const label = document.createElement("label");
 //   label.htmlFor = "employeeName";
-//   //   label.setAttribute("for", "employeeName");
+//      label.setAttribute("for", "employeeName");
 //   const input = document.createElement("input");
 //   input.htmlFor = "employeeName";
 //   const div2 = document.createElement("/div");
@@ -54,9 +54,12 @@ form.addEventListener("submit", async function (event) {
 const registerbtn = document.getElementById("register");
 registerbtn.addEventListener("click", function () {
   console.log("aaa");
-  fetch("/DateTime/EmployeeRegisterServlet", {
-    method: "POST",
+  fetch('/DateTime/EmployeeRegisterServlet', {
+    method: 'POST',
     body: JSON.stringify(info),
+    headers: {
+      'Content-Type': 'application/json'
+    },
   })
     .then((res) => console.log("success", res))
     .then((data) => console.log(data));
