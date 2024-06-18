@@ -1,15 +1,14 @@
 package models;
-import java.util.Date;
 
 public class UserBean {
 	private int employeeCD,storeCD, position ;
 	private String name, password, email;
-	private Date hire_date;
+	private java.sql.Date hire_date;
 
 
 
 	public UserBean(int employeeCD, int storeCD, int position, String name, String password, String email,
-			Date hire_date) {
+			java.sql.Date hire_date) {
 		super();
 		this.employeeCD = employeeCD;
 		this.storeCD = storeCD;
@@ -55,10 +54,10 @@ public class UserBean {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Date getHire_date() {
+	public java.sql.Date getHire_date() {
 		return hire_date;
 	}
-	public void setHire_date(Date hire_date) {
+	public void setHire_date(java.sql.Date hire_date) {
 		this.hire_date = hire_date;
 	}
 	

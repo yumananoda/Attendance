@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import dao.UserDao;
 import models.UserBean;
 
 /**
@@ -51,33 +52,47 @@ public class EmployeeRegisterServlet extends HttpServlet {
 		BufferedReader reader = request.getReader();
 		System.out.println(reader);
 		String line;
-		while ((line = reader.readLine()) != null) {
-			System.out.println(line);
+		line = reader.readLine();
+		System.out.println(line);
+		while (line != null) {
+			sb.append(line);
+			line = reader.readLine();
 		}
+		System.out.println("line:");
+		System.out.println(line);
+
 		String requestBody = sb.toString();
-		System.out.println("ここ0");
 		
 		ObjectMapper objectMapper = new ObjectMapper();
-		System.out.println("ここ１");
+		System.out.println("requestBody:");
+		System.out.println(requestBody);
 		List<Map<String, Object>> dataList = objectMapper.readValue(requestBody, List.class);
-		
+		System.out.println("dataList:");
+		System.out.println(dataList);
 		for(Map<String, Object> data: dataList) {
 			String name = (String) data.get("name");
+			System.out.println(name);
 			String email = (String) data.get("email");
-			int position = (int)data.get("position");
+			String position = (String)data.get("position");
+			int position2 = Integer.parseInt(position);
+			System.out.println(position);
 			String hire_date = (String) data.get("hire_date");
 			LocalDate localDate = LocalDate.parse(hire_date);
 			Date sqlDate = Date.valueOf(localDate);
-			System.out.println("ここ１");
-//			int storeCD = 2;
-//			
-//			GeneratorPassword generatorPassword = new GeneratorPassword();
-//			String password = generatorPassword.generate();
-//			int employeeCD=2;
-//			System.out.println("ここ3");
-//			
-//			UserBean EmployeeRegisterRequest = new UserBean(employeeCD, storeCD, position, name, password, email, sqlDate);
-//			EmployeeRegisterList.add(EmployeeRegisterRequest);
+			int storeCD = 2;
+			
+			//GeneratorPassword generatorPassword = new GeneratorPassword();
+			//String password = generatorPassword.generate();
+			String password ="aaaaa";
+			System.out.println(password);
+			int employeeCD=2;
+			
+			UserBean EmployeeRegisterRequest = new UserBean(employeeCD, storeCD, position2, name, password, email, sqlDate);
+			EmployeeRegisterList.add(EmployeeRegisterRequest);
+		}
+		UserDao userDao = new UserDao();
+		for(UserBean EmployeeRegister : EmployeeRegisterList) {
+			userDao.Register(EmployeeRegister);
 		}
 		
 	}

@@ -23,6 +23,7 @@ const POSITION_NAME = {
 // function func2() {}
 
 const info = [];
+const removeUsers = [];
 
 const obj = {
   name: "",
@@ -51,6 +52,7 @@ form.addEventListener("submit", async function (event) {
   registerShow();
 });
 
+//登録ボタン押下
 const registerbtn = document.getElementById("register");
 registerbtn.addEventListener("click", function () {
   console.log("aaa");
@@ -67,8 +69,26 @@ const registerShow = () => {
   while (registerUser.firstChild) {
     registerUser.removeChild(registerUser.firstChild);
   }
+
+  //追加ボタン押下
   for (let i = 0; i < info.length; i++) {
     let div4 = document.createElement("div");
+    let check = document.createElement("input");
+    check.type = "checkbox";
+    check.name = "remove";
+    check.value = info[i].email;
+    check.addEventListener("change", (e) => {
+      console.log(e);
+
+      if (removeUsers.some((x) => x === e.target.value)) {
+        const index = removeUsers.findIndex((y) => y === e.target.value);
+        removeUsers.splice(index, 1);
+      } else {
+        removeUsers.push(e.target.value);
+      }
+      console.log(removeUsers);
+    });
+    div4.appendChild(check);
     let p1 = document.createElement("p");
     let p2 = document.createElement("p");
     let p3 = document.createElement("p");
@@ -82,6 +102,17 @@ const registerShow = () => {
     div4.appendChild(p3);
     div4.appendChild(p4);
     registerUser.appendChild(div4);
+  }
+
+  //削除ボタン追加&押下
+  if (registerShow !== 0) {
+    let removebtn = document.createElement("button");
+    removebtn.textContent = "削除する";
+    registerUser.appendChild(removebtn);
+    removebtn.id = "removebtn";
+    removebtn.addEventListener("click", function () {
+      alert("削除しました");
+    });
   }
 };
 
