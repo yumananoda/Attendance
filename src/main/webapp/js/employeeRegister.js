@@ -4,6 +4,8 @@ const POSITION_NAME = {
   1: "正社員",
   2: "アルバイト",
 };
+const info = [];
+const removeUsers = [];
 
 // let empForm = document.getElementById("employeeForm");
 // const func = () => {
@@ -11,7 +13,7 @@ const POSITION_NAME = {
 //   div.className = "input-group";
 //   const label = document.createElement("label");
 //   label.htmlFor = "employeeName";
-//   //   label.setAttribute("for", "employeeName");
+//     label.setAttribute("for", "employeeName");
 //   const input = document.createElement("input");
 //   input.htmlFor = "employeeName";
 //   const div2 = document.createElement("/div");
@@ -22,26 +24,26 @@ const POSITION_NAME = {
 
 // function func2() {}
 
-const info = [];
-const removeUsers = [];
+// const obj = {
+//   name: "",
+//   email: "",
+//   position: 1,
+//   hire_date: "",
+// };
 
-const obj = {
-  name: "",
-  email: "",
-  position: 1,
-  hire_date: "",
-};
-
+//追加ボタン押下
 let form = document.getElementById("employeeForm");
+let id = 1;
 form.addEventListener("submit", async function (event) {
   event.preventDefault(); //普通の動きを止める
-  const inputContent = document.getElementById("employeeForm");
-  let inputname = inputContent.name.value;
-  let inputemail = inputContent.email.value;
-  let inputradio = inputContent.position.value;
-  let inputdate = inputContent.hire_date.value;
+  // const inputContent = document.getElementById("employeeForm");
+  let inputname = form.name.value;
+  let inputemail = form.email.value;
+  let inputradio = form.position.value;
+  let inputdate = form.hire_date.value;
   console.log(inputname, inputemail, inputradio, inputdate);
   info.push({
+    id: id,
     name: inputname,
     email: inputemail,
     position: inputradio,
@@ -50,44 +52,39 @@ form.addEventListener("submit", async function (event) {
   console.log(info);
   form.reset();
   registerShow();
+  console.log(id);
+  id++;
 });
 
-//登録ボタン押下
-const registerbtn = document.getElementById("register");
-registerbtn.addEventListener("click", function () {
-  console.log("aaa");
-  fetch("/DateTime/EmployeeRegisterServlet", {
-    method: "POST",
-    body: JSON.stringify(info),
-  })
-    .then((res) => console.log("success", res))
-    .then((data) => console.log(data));
-});
 
+  //関数registerShow定義
 let registerUser = document.getElementById("registerUser");
 const registerShow = () => {
   while (registerUser.firstChild) {
     registerUser.removeChild(registerUser.firstChild);
   }
 
-  //追加ボタン押下
+  //チェックボックス生成
   for (let i = 0; i < info.length; i++) {
     let div4 = document.createElement("div");
     let check = document.createElement("input");
-    check.type = "checkbox";
-    check.name = "remove";
-    check.value = info[i].email;
+    check.setAttribute("type", "checkbox");
+    check.setAttribute("name", "remove");
+    check.setAttribute("value", info[i].id);
+    //チェックボックス処理
     check.addEventListener("change", (e) => {
-      console.log(e);
-
-      if (removeUsers.some((x) => x === e.target.value)) {
+      if (removeUsers.some((x) => x === e.target.value)) { //チェックボックスが既チェック
         const index = removeUsers.findIndex((y) => y === e.target.value);
         removeUsers.splice(index, 1);
-      } else {
+        console.log("removeUsersから削除");
+      } else { //チェックボックスが未チェック
         removeUsers.push(e.target.value);
+        console.log("removeUsersに追加");
       }
       console.log(removeUsers);
-    });
+    })
+
+    //入力済みのユーザを表示
     div4.appendChild(check);
     let p1 = document.createElement("p");
     let p2 = document.createElement("p");
@@ -111,10 +108,36 @@ const registerShow = () => {
     registerUser.appendChild(removebtn);
     removebtn.id = "removebtn";
     removebtn.addEventListener("click", function () {
+      removeSelectedUsers();
+      registerShow(); // 画面表示を更新
       alert("削除しました");
     });
   }
-};
+}
+const removeSelectedUsers = () => {
+  // removeUsersに含まれるIDをinfoから削除
+  for (const userId of removeUsers) {
+    const index = info.findIndex(user => user.id === parseInt(userId, 10));
+    if (index !== -1) {
+      info.splice(index, 1);
+    }
+  }
+  // removeUsersをクリア
+  removeUsers.length = 0;
+};s
+
+//登録ボタン押下
+const registerbtn = document.getElementById("register");
+registerbtn.addEventListener("click", function () {
+  console.log("aaa");
+  fetch("/DateTime/EmployeeRegisterServlet", {
+    method: "POST",
+    body: JSON.stringify(info),
+  })
+    .then((res) => console.log("success", res))
+    .then((data) => console.log(data));
+});
+
 
 // let register = document.getElementById("register");
 // register.href = "/DateTime/EmployeeRegisterServlet?name=aaa";
