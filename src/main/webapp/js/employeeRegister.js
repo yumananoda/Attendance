@@ -1,11 +1,5 @@
 // import { POSITION_NAME } from "./const";
-
-const POSITION_NAME = {
-  1: "正社員",
-  2: "アルバイト",
-};
-const info = [];
-const removeUsers = [];
+import { POSITION_NAME, info, removeUsers } from './const.js';
 
 // let empForm = document.getElementById("employeeForm");
 // const func = () => {

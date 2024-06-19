@@ -1,22 +1,25 @@
-const DAYS = {
-	SUNDAY: 1,
-	MONDAY: 2,
-	TUESDAY: 3,
-	WEDNESDAY: 4,
-	THURSDAY: 5,
-	FRIDAY: 6,
-	SATURDAY: 7
-}
+// const DAYS = {
+// 	SUNDAY: 1,
+// 	MONDAY: 2,
+// 	TUESDAY: 3,
+// 	WEDNESDAY: 4,
+// 	THURSDAY: 5,
+// 	FRIDAY: 6,
+// 	SATURDAY: 7
+// }
 
-const DAY_TEXTS = {
-	[DAYS.SUNDAY]: "日",
-	[DAYS.MONDAY]: "月",
-	[DAYS.TUESDAY]: "火",
-	[DAYS.WEDNESDAY]: "水",
-	[DAYS.THURSDAY]: "木",
-	[DAYS.FRIDAY]: "金",
-	[DAYS.SATURDAY]: "土",
-}
+// const DAY_TEXTS = {
+// 	[DAYS.SUNDAY]: "日",
+// 	[DAYS.MONDAY]: "月",
+// 	[DAYS.TUESDAY]: "火",
+// 	[DAYS.WEDNESDAY]: "水",
+// 	[DAYS.THURSDAY]: "木",
+// 	[DAYS.FRIDAY]: "金",
+// 	[DAYS.SATURDAY]: "土",
+// }
+
+import { DAYS } from './const.js';
+import { DAY_TEXTS } from './const.js';
 
 const selectWeekEl = document.getElementById("selectWeek");
 const inputTimeGroupEl = document.getElementById("inputTimeGroup");

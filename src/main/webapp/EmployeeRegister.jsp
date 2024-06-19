@@ -37,6 +37,7 @@
         <button id="register">登録</button>
     </form>
     <div id="registerUser"></div>
-    <script src="js/employeeRegister.js" ></script>
+    <script type="module" src="js/const.js" ></script>
+    <script type="module" src="js/employeeRegister.js" ></script>
 </body>
 </html>
