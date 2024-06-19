@@ -13,11 +13,7 @@ const removeUsers = [];
 //   div.className = "input-group";
 //   const label = document.createElement("label");
 //   label.htmlFor = "employeeName";
-<<<<<<< HEAD
-//     label.setAttribute("for", "employeeName");
-=======
 //      label.setAttribute("for", "employeeName");
->>>>>>> 023f348ec010ba84228e82ca4db860bf8d6cb14a
 //   const input = document.createElement("input");
 //   input.htmlFor = "employeeName";
 //   const div2 = document.createElement("/div");
@@ -59,23 +55,6 @@ form.addEventListener("submit", async function (event) {
   console.log(id);
   id++;
 });
-
-<<<<<<< HEAD
-=======
-const registerbtn = document.getElementById("register");
-registerbtn.addEventListener("click", function () {
-  console.log("aaa");
-  fetch('/DateTime/EmployeeRegisterServlet', {
-    method: 'POST',
-    body: JSON.stringify(info),
-    headers: {
-      'Content-Type': 'application/json'
-    },
-  })
-    .then((res) => console.log("success", res))
-    .then((data) => console.log(data));
-});
->>>>>>> 023f348ec010ba84228e82ca4db860bf8d6cb14a
 
   //関数registerShow定義
 let registerUser = document.getElementById("registerUser");
@@ -144,7 +123,7 @@ const removeSelectedUsers = () => {
   }
   // removeUsersをクリア
   removeUsers.length = 0;
-};s
+};
 
 //登録ボタン押下
 const registerbtn = document.getElementById("register");
