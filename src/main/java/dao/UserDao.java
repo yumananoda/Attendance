@@ -13,7 +13,7 @@ public class UserDao extends CommonDao {
 	public UserBean findUser(int args_employeeCD, String args_password) {
         String query = "SELECT * FROM users WHERE employeeCD=? AND password=?"; 
         try (Connection con = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement statement = con.prepareStatement(query)) {
+            PreparedStatement statement = con.prepareStatement(query)) {
 
             statement.setInt(1, args_employeeCD);
             statement.setString(2, args_password);
@@ -45,8 +45,8 @@ public class UserDao extends CommonDao {
 	public void Register(UserBean EmployeeRegister) {
 		String query = "INSERT INTO users(name, email, password, storeCD, hire_date, position) VALUES(?,?,?,?,?,?)"; 
         try (Connection con = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement statement = con.prepareStatement(query)) {
-        	
+            PreparedStatement statement = con.prepareStatement(query)) {
+
             statement.setString(1, EmployeeRegister.getName());
             statement.setString(2, EmployeeRegister.getEmail());
             statement.setString(3, EmployeeRegister.getPassword());
@@ -56,10 +56,25 @@ public class UserDao extends CommonDao {
 
             statement.executeUpdate();
             statement.close();
-        	con.close();
+            con.close();
         }catch (SQLException e) {
             e.printStackTrace();
             // エラーハンドリングを適切に行う
         }
 	}
+
+    public int findStoreCD(int args_managerCD){
+        String query = "SELECT storeCD FROM storeManagers WHERE managerCD = ?";
+        try (Connection con = DriverManager.getConnection(URL, USER, PASS);
+            PreparedStatement statement = con.prepareStatement(query)) {
+                statement.setString(1, args_managerCD);
+                statement.executeQuery();
+                statement.close();
+                con.close();
+            }catch (SQLException e) {
+            e.printStackTrace();
+            // エラーハンドリングを適切に行う
+        }
+        return storeCD;
+    }
 }

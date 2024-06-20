@@ -7,8 +7,7 @@ public class UserBean {
 
 
 
-	public UserBean(int employeeCD, int storeCD, int position, String name, String password, String email,
-			java.sql.Date hire_date) {
+	public UserBean(int employeeCD, int storeCD, int position, String name, String password, String email, java.sql.Date hire_date) {
 		super();
 		this.employeeCD = employeeCD;
 		this.storeCD = storeCD;

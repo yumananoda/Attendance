@@ -19,7 +19,6 @@ import dao.RegistrationClockDao;
 @WebServlet("/ClockInServlet")
 public class ClockInServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
     /**
      * @see HttpServlet#HttpServlet()
      */

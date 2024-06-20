@@ -15,31 +15,31 @@ System.out.println(clockIn);
 </head>
 <body>
 <!--時刻表示-->    
- <p id="realtime"></p>
+<p id="realtime"></p>
 <script>
 	function twoDigit(num) {
-	  let ret;
-	  if( num < 10 ) 
-	    ret = "0" + num; 
-	  else 
-	    ret = num; 
-	  return ret;
+	let ret;
+	if( num < 10 ) 
+	ret = "0" + num; 
+	else 
+	ret = num; 
+	return ret;
 	}
 	function showClock() {
-	  let nowTime = new Date();
-	  let nowHour = twoDigit( nowTime.getHours() );
-	  let nowMin  = twoDigit( nowTime.getMinutes() );
-	  let nowSec  = twoDigit( nowTime.getSeconds() );
-	  let msg = nowHour + ":" + nowMin + ":" + nowSec;
-	  document.getElementById("realtime").innerHTML = msg;
+	let nowTime = new Date();
+	let nowHour = twoDigit( nowTime.getHours() );
+	let nowMin  = twoDigit( nowTime.getMinutes() );
+	let nowSec  = twoDigit( nowTime.getSeconds() );
+	let msg = nowHour + ":" + nowMin + ":" + nowSec;
+	document.getElementById("realtime").innerHTML = msg;
 	}
 	setInterval('showClock()',1000);
 </script>
 
 <form action="ClockInServlet" method="POST">
 	<input type="hidden" id="employeeCD" name="employeeCD" value="<%=employeeCD %>">
-		<% if(clockIn != null){ %>
-    <button disabled class="styled" type="submit" value="clock-in" >出勤</button>
+<% if(clockIn != null){ %> <!-- 出勤済 -->
+    <button disabled class="styled" type="submit" value="clock-in" >出勤</button> <!-- 出勤ボタンを押せないようにする -->
     <% }else{ %>
     <button  class="styled" type="submit" value="clock-in" >出勤</button>
     <% } %>
@@ -47,14 +47,14 @@ System.out.println(clockIn);
 
 <form action="ClockOutServlet" method="POST">
 	<input type="hidden" id="employeeCD" name="employeeCD" value="<%=employeeCD %>">
-	<% if(clockIn == null){%>
-    <button disabled class="styled" type="submit" value="clock-out" >退勤</button>
+	<% if(clockIn == null){%> <!-- 未出勤 -->
+    <button disabled class="styled" type="submit" value="clock-out" >退勤</button> <!-- 退勤ボタンを押せないようにする -->
     <% }else{ %>
     <button  class="styled" type="submit" value="clock-out" >退勤</button>
     <% } %>
- </form>
+</form>
 
- <a href = "AttendanceStatusServlet">勤怠状況</a>
- 
+<a href = "AttendanceStatusServlet">勤怠状況</a>
+
 </body>
 </html>
