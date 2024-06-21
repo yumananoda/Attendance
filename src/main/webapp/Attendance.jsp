@@ -4,6 +4,7 @@
 <%
 String employeeCD = (String)session.getAttribute("employeeCD"); 
 LocalDateTime clockIn = (LocalDateTime)session.getAttribute("clockIn"); 
+System.out.print("clockIn:");
 System.out.println(clockIn);
 %>
 
@@ -55,6 +56,7 @@ System.out.println(clockIn);
 </form>
 
 <a href = "AttendanceStatusServlet">勤怠状況</a>
+<a href = "EmployeeRegister.jsp">従業員登録</a>
 
 </body>
 </html>

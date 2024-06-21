@@ -1,13 +1,14 @@
 package models;
 
 public class UserBean {
-	private int employeeCD,storeCD, position ;
+	private Integer employeeCD;
+	private int storeCD,position ;
 	private String name, password, email;
 	private java.sql.Date hire_date;
 
 
 
-	public UserBean(int employeeCD, int storeCD, int position, String name, String password, String email, java.sql.Date hire_date) {
+	public UserBean(Integer employeeCD, int storeCD, int position, String name, String password, String email, java.sql.Date hire_date) {
 		super();
 		this.employeeCD = employeeCD;
 		this.storeCD = storeCD;
@@ -17,10 +18,10 @@ public class UserBean {
 		this.email = email;
 		this.hire_date = hire_date;
 	}
-	public int getEmployeeCD() {
+	public Integer getEmployeeCD() {
 		return employeeCD;
 	}
-	public void setEmployeeCD(int employeeCD) {
+	public void setEmployeeCD(Integer employeeCD) {
 		this.employeeCD = employeeCD;
 	}
 	public int getStoreCD() {

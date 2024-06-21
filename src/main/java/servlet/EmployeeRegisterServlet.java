@@ -13,8 +13,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import dao.UserDao;
@@ -40,14 +40,19 @@ public class EmployeeRegisterServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		System.out.println("called");
 		ArrayList<UserBean> EmployeeRegisterList = new ArrayList<>();
 		UserDao userDao = new UserDao();
-		session.getAttribute("managerCD", managerCD);
 		HttpSession session = request.getSession();
+		System.out.println(session);
+		String managerCD = (String)session.getAttribute("employeeCD");
+//		int managerCD = 1;
+		int managerCD2 = Integer.parseInt(managerCD);
+		System.out.println(managerCD);
 
 		StringBuilder sb = new StringBuilder();
 		String line;
+		BufferedReader reader = request.getReader();
 		line = reader.readLine();
 		System.out.println(line);
 		while (line != null) {
@@ -63,7 +68,6 @@ public class EmployeeRegisterServlet extends HttpServlet {
 		while ((line = reader.readLine()) != null) {
 			
 		}
-		String requestBody = sb.toString();		
 		ObjectMapper objectMapper = new ObjectMapper();
 		System.out.println("requestBody:");
 		System.out.println(requestBody);
@@ -85,9 +89,8 @@ public class EmployeeRegisterServlet extends HttpServlet {
 			//String password = generatorPassword.generate();
 			String password ="aaaaa";
 			// System.out.println(password);
-			int employeeCD=null; //employeeCDは自動生成のためnull
-			String managerCD = request.getParameter("employeeCD"); //店長の従業員コードを取得
-			int storeCD = userDao.findStoreCD(managerCD);
+			Integer employeeCD=null; //employeeCDは自動生成のためnull
+			int storeCD = userDao.findStoreCD(managerCD2);
 			
 			UserBean EmployeeRegisterRequest = new UserBean(employeeCD, storeCD, position2, name, password, email, sqlDate);
 			EmployeeRegisterList.add(EmployeeRegisterRequest);

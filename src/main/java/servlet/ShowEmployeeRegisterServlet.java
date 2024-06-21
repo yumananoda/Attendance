@@ -1,8 +1,6 @@
-/** 出勤 */
 package servlet;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,36 +9,39 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.RegistrationClockDao;
-
 /**
- * Servlet implementation class AttendanceServlet
+ * Servlet implementation class ShowEmployeeRegisterServlet
  */
-@WebServlet("/ClockInServlet")
-public class ClockInServlet extends HttpServlet {
+@WebServlet("/ShowEmployeeRegisterServlet")
+public class ShowEmployeeRegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ClockInServlet() {
+    public ShowEmployeeRegisterServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String employeeCD = request.getParameter("employeeCD");
-		int employeeCD2 = Integer.parseInt(employeeCD);
-		LocalDateTime now = LocalDateTime.now();
-		System.out.println(employeeCD);
-		RegistrationClockDao in = new RegistrationClockDao();
-		in.registrationClockIn(now, employeeCD2);
+		// TODO Auto-generated method stub
+		doGet(request, response);
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("clockIn",now);
-		request.getRequestDispatcher("/Attendance.jsp").forward(request, response);
+		int managerCD = session.getAttribute("managerCD");
+		
 	}
 
 }

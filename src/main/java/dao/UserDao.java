@@ -63,18 +63,24 @@ public class UserDao extends CommonDao {
         }
 	}
 
-    public int findStoreCD(int args_managerCD){
+    public Integer findStoreCD(int args_managerCD){
         String query = "SELECT storeCD FROM storeManagers WHERE managerCD = ?";
         try (Connection con = DriverManager.getConnection(URL, USER, PASS);
             PreparedStatement statement = con.prepareStatement(query)) {
-                statement.setString(1, args_managerCD);
-                statement.executeQuery();
-                statement.close();
-                con.close();
+                statement.setInt(1, args_managerCD);
+                ResultSet rs = statement.executeQuery();
+                int storeCD;
+                while (rs.next()) {
+    				storeCD = rs.getInt("storeCD");
+
+    				statement.close();
+                    con.close();
+                    return storeCD;
+    			} 
             }catch (SQLException e) {
             e.printStackTrace();
             // エラーハンドリングを適切に行う
         }
-        return storeCD;
+		return null;
     }
 }
