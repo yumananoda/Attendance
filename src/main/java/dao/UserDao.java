@@ -71,12 +71,11 @@ public class UserDao extends CommonDao {
                 ResultSet rs = statement.executeQuery();
                 int storeCD;
                 while (rs.next()) {
-    				storeCD = rs.getInt("storeCD");
-
-    				statement.close();
+                    storeCD = rs.getInt("storeCD");
+                    statement.close();
                     con.close();
                     return storeCD;
-    			} 
+                    } 
             }catch (SQLException e) {
             e.printStackTrace();
             // エラーハンドリングを適切に行う

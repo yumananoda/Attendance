@@ -1,4 +1,7 @@
-// const DAYS = {
+import { DAYS } from './const.js';
+import { DAY_TEXTS } from './const.js';
+
+// export const DAYS = {
 // 	SUNDAY: 1,
 // 	MONDAY: 2,
 // 	TUESDAY: 3,
@@ -8,7 +11,7 @@
 // 	SATURDAY: 7
 // }
 
-// const DAY_TEXTS = {
+// export const DAY_TEXTS = {
 // 	[DAYS.SUNDAY]: "日",
 // 	[DAYS.MONDAY]: "月",
 // 	[DAYS.TUESDAY]: "火",
@@ -18,34 +21,51 @@
 // 	[DAYS.SATURDAY]: "土",
 // }
 
-import { DAYS } from './const.js';
-import { DAY_TEXTS } from './const.js';
+const dayElements = {};
 
 const selectWeekEl = document.getElementById("selectWeek");
 const inputTimeGroupEl = document.getElementById("inputTimeGroup");
-console.log("a: ", inputTimeGroupEl)
+// console.log("a: ", inputTimeGroupEl)
 
 for(const day of Object.values(DAYS)) {
-	console.log("day: ", day)
+	console.log("day:", day)
 	const div = document.createElement("div");
-	div.innerText = DAY_TEXTS[day];
-	div.value = day;
+	const daybtn = document.createElement("button");
+	daybtn.innerText = DAY_TEXTS[day];
+	daybtn.value = day;
+	div.appendChild(daybtn);
 	selectWeekEl.appendChild(div);
-	div.addEventListener("click", function(event){
-		console.log(event.target.value);
+
+	daybtn.addEventListener("click", function(event){
 		const selectValue = event.target.value;
-		const dayTextEl = document.createElement("p");
-		dayTextEl.innerText = DAY_TEXTS[selectValue];
-		console.log(dayTextEl)
-		inputTimeGroupEl.appendChild(dayTextEl)
-		
-		const input1 = document.createElement("input");
-		input1.type = "text";
-		const input2 = document.createElement("input");
-		input2.type = "text";
-		inputTimeGroupEl.appendChild(input1);
-		inputTimeGroupEl.appendChild(input2);
+		if(document.getElementById(selectValue) !== null){
+			const remove_div = document.getElementById(selectValue);
+			// daybtn.classList.remove("gray");
+			remove_div.remove();
+		}else{
+			const dayTextEl = document.createElement("div");
+			dayTextEl.id = selectValue;
+			const dayTextPr = document.createElement("p");
+			dayTextPr.innerText = DAY_TEXTS[selectValue];
+			console.log(dayTextEl);
+			console.log("selectValue:",selectValue);
+
+			const startTime = document.createElement("input");
+			startTime.type = "text";
+			const endTime = document.createElement("input");
+			endTime.type = "text";
+			dayTextEl.appendChild(dayTextPr);
+			dayTextEl.appendChild(startTime);
+			dayTextEl.appendChild(endTime);
+			
+			
+			inputTimeGroupEl.appendChild(dayTextEl);
+			// daybtn.classList.add("gray");
+		}
+		daybtn.classList.toggle("gray");
 	})
+
+	
 }
 
 // DAYS.forEach((day) => {

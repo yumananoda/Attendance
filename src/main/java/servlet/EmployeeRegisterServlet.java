@@ -46,7 +46,6 @@ public class EmployeeRegisterServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		System.out.println(session);
 		String managerCD = (String)session.getAttribute("employeeCD");
-//		int managerCD = 1;
 		int managerCD2 = Integer.parseInt(managerCD);
 		System.out.println(managerCD);
 
