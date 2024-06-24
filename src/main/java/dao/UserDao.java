@@ -6,7 +6,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import models.SelectEmployeeBean;
 import models.UserBean;
 
 public class UserDao extends CommonDao {
@@ -81,5 +83,30 @@ public class UserDao extends CommonDao {
             // エラーハンドリングを適切に行う
         }
 		return null;
+    }
+    
+    public ArrayList<SelectEmployeeBean> SelectEmployeeCDOfShiftRegister(int args_storeCD){
+    	ArrayList<SelectEmployeeBean> SelectEmployees = new ArrayList<SelectEmployeeBean>();
+        String query = "SELECT employeeCD, name FROM users WHERE storeCD = ?";
+        try (Connection con = DriverManager.getConnection(URL, USER, PASS);
+            PreparedStatement statement = con.prepareStatement(query)) {
+                statement.setInt(1, args_storeCD);
+                ResultSet rs = statement.executeQuery();
+                
+                while (rs.next()) {
+                	int employeeCD = rs.getInt("storeCD");
+                	String name = rs.getString("name");
+                	
+                	SelectEmployeeBean SelectEmployee = new SelectEmployeeBean(employeeCD, name);
+                	SelectEmployees.add(SelectEmployee);
+                   
+                    } 
+                statement.close();
+                con.close();
+            }catch (SQLException e) {
+            e.printStackTrace();
+            // エラーハンドリングを適切に行う
+        }
+		return SelectEmployees;
     }
 }

@@ -1,5 +1,5 @@
 // import { POSITION_NAME } from "./const";
-import { POSITION_NAME, info, removeUsers } from './const.js';
+import { POSITION_NAME, info, removeUsers } from "./const.js";
 
 // let empForm = document.getElementById("employeeForm");
 // const func = () => {
@@ -50,7 +50,7 @@ form.addEventListener("submit", async function (event) {
   id++;
 });
 
-  //関数registerShow定義
+//関数registerShow定義
 let registerUser = document.getElementById("registerUser");
 const registerShow = () => {
   while (registerUser.firstChild) {
@@ -66,16 +66,18 @@ const registerShow = () => {
     check.setAttribute("value", info[i].id);
     //チェックボックス処理
     check.addEventListener("change", (e) => {
-      if (removeUsers.some((x) => x === e.target.value)) { //チェックボックスが既チェック
+      if (removeUsers.some((x) => x === e.target.value)) {
+        //チェックボックスが既チェック
         const index = removeUsers.findIndex((y) => y === e.target.value);
         removeUsers.splice(index, 1);
         console.log("removeUsersから削除");
-      } else { //チェックボックスが未チェック
+      } else {
+        //チェックボックスが未チェック
         removeUsers.push(e.target.value);
         console.log("removeUsersに追加");
       }
       console.log(removeUsers);
-    })
+    });
 
     //入力済みのユーザを表示
     div4.appendChild(check);
@@ -106,11 +108,11 @@ const registerShow = () => {
       alert("削除しました");
     });
   }
-}
+};
 const removeSelectedUsers = () => {
   // removeUsersに含まれるIDをinfoから削除
   for (const userId of removeUsers) {
-    const index = info.findIndex(user => user.id === parseInt(userId, 10));
+    const index = info.findIndex((user) => user.id === parseInt(userId, 10));
     if (index !== -1) {
       info.splice(index, 1);
     }
@@ -130,7 +132,6 @@ registerbtn.addEventListener("click", function () {
     .then((res) => console.log("success", res))
     .then((data) => console.log(data));
 });
-
 
 // let register = document.getElementById("register");
 // register.href = "/DateTime/EmployeeRegisterServlet?name=aaa";

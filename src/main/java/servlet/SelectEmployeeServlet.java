@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,17 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.UserDao;
+import models.SelectEmployeeBean;
+
 /**
- * Servlet implementation class ShowEmployeeRegisterServlet
+ * Servlet implementation class SelectEmployeeServlet
  */
-@WebServlet("/ShowEmployeeRegisterServlet")
-public class ShowEmployeeRegisterServlet extends HttpServlet {
+@WebServlet("/SelectEmployeeServlet")
+public class SelectEmployeeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowEmployeeRegisterServlet() {
+    public SelectEmployeeServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,7 +44,14 @@ public class ShowEmployeeRegisterServlet extends HttpServlet {
 		doGet(request, response);
 		
 		HttpSession session = request.getSession();
-		int managerCD = session.getAttribute("managerCD");
+		String managerCD = (String)session.getAttribute("employeeCD");
+		int managerCD2 = Integer.parseInt(managerCD);
+
+		UserDao userDao = new UserDao();
+		int storeCD = userDao.findStoreCD(managerCD2);
+		
+		ArrayList<SelectEmployeeBean> SelectEmployee = userDao.SelectEmployeeCDOfShiftRegister(storeCD);
+		
 		
 	}
 
