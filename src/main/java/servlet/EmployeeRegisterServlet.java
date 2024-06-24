@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import dao.UserDao;
+import dao.EmployeeDao;
 import models.UserBean;
 
 /**
@@ -42,7 +42,7 @@ public class EmployeeRegisterServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		System.out.println("called");
 		ArrayList<UserBean> EmployeeRegisterList = new ArrayList<>();
-		UserDao userDao = new UserDao();
+		EmployeeDao employeeDao = new EmployeeDao();
 		HttpSession session = request.getSession();
 		System.out.println(session);
 		String managerCD = (String)session.getAttribute("employeeCD");
@@ -89,13 +89,13 @@ public class EmployeeRegisterServlet extends HttpServlet {
 			String password ="aaaaa";
 			// System.out.println(password);
 			Integer employeeCD=null; //employeeCDは自動生成のためnull
-			int storeCD = userDao.findStoreCD(managerCD2);
+			int storeCD = employeeDao.findStoreCD(managerCD2);
 			
 			UserBean EmployeeRegisterRequest = new UserBean(employeeCD, storeCD, position2, name, password, email, sqlDate);
 			EmployeeRegisterList.add(EmployeeRegisterRequest);
 		}
 		for(UserBean EmployeeRegister : EmployeeRegisterList) {
-			userDao.Register(EmployeeRegister);
+			employeeDao.Register(EmployeeRegister);
 		}
 		
 	}

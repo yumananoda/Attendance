@@ -55,7 +55,7 @@ System.out.println(clockIn);
     <% } %>
 </form>
 
-<a href = "AttendanceStatusServlet">勤怠状況</a>
+<a href = "TimeRecordServlet">勤怠状況</a>
 <a href = "EmployeeRegister.jsp">従業員登録</a>
 
 </body>

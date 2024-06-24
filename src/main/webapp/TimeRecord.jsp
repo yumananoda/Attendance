@@ -2,9 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="models.TimeRecordsBean" %>
-    <%
-    String timeRecords = (String)session.getAttribute("timeRecords");
-    %>
+<% String timeRecords = (String)session.getAttribute("timeRecords"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,10 +14,10 @@
 <body>
     <h1>sample</h1>
     <div class="calendar-title">
-      <span class="btn-monthMove prev">＜</span>
-      <span id="year">2018</span>/
-      <span id="month">11</span>
-      <span class="btn-monthMove next">＞</span>
+    <span class="btn-monthMove prev">＜</span>
+    <span id="year">2018</span>/
+    <span id="month">11</span>
+    <span class="btn-monthMove next">＞</span>
     </div>
     
     <div id="calendar"></div>

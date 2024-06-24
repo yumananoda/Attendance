@@ -12,16 +12,16 @@ import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import dao.AttendanceStatusDao;
+import dao.TimeRecordDao;
 import models.TimeRecordsBean;
 
 /**
  * Servlet implementation class AttendanceStatusServlet
  */
-@WebServlet("/AttendanceStatusServlet")
+@WebServlet("/TimeRecordServlet")
 public class AttendanceStatusServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -38,7 +38,7 @@ public class AttendanceStatusServlet extends HttpServlet {
 		//String employeeCD = request.getParameter("employeeCD");
 		//int employeeCD2 = Integer.parseInt(employeeCD);
 		int employeeCD2=2;
-		AttendanceStatusDao status = new AttendanceStatusDao();
+		TimeRecordDao status = new TimeRecordDao();
 		ArrayList<TimeRecordsBean> timeRecords = status.getStatus(employeeCD2);
 		System.out.println(timeRecords);
 		
@@ -48,8 +48,8 @@ public class AttendanceStatusServlet extends HttpServlet {
 		System.out.println(json);
 		
 		HttpSession session = request.getSession();
-	    session.setAttribute("timeRecords", json);
-	    request.getRequestDispatcher("/TimeRecord.jsp").forward(request, response);
+		session.setAttribute("timeRecords", json);
+		request.getRequestDispatcher("/TimeRecord.jsp").forward(request, response);
 	}
 
 	/**

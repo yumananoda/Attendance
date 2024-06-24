@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.UserDao;
+import dao.EmployeeDao;
 import models.SelectEmployeeBean;
 
 /**
@@ -19,40 +19,40 @@ import models.SelectEmployeeBean;
 @WebServlet("/SelectEmployeeServlet")
 public class SelectEmployeeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SelectEmployeeServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		/**
+		 * @see HttpServlet#HttpServlet()
+		 */
+		public SelectEmployeeServlet() {
+			super();
+			// TODO Auto-generated constructor stub
+		}
+
+		/**
+		 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+		 */
+		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			// TODO Auto-generated method stub
+			response.getWriter().append("Served at: ").append(request.getContextPath());
+		}
+
+		/**
+		 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+		 */
+		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			// TODO Auto-generated method stub
+			doGet(request, response);
+			
+			HttpSession session = request.getSession();
+			String managerCD = (String)session.getAttribute("employeeCD");
+			int managerCD2 = Integer.parseInt(managerCD);
+
+			EmployeeDao employeeDao = new EmployeeDao();
+			int storeCD = employeeDao.findStoreCD(managerCD2);
+			
+			ArrayList<SelectEmployeeBean> selectEmployee = employeeDao.findEmployeeCDOfShiftRegister(storeCD);
+			session.setAttribute("selectEmployee", selectEmployee);
+			request.getRequestDispatcher("/SelectEmployee.jsp").forward(request, response);
+		}
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-		
-		HttpSession session = request.getSession();
-		String managerCD = (String)session.getAttribute("employeeCD");
-		int managerCD2 = Integer.parseInt(managerCD);
-
-		UserDao userDao = new UserDao();
-		int storeCD = userDao.findStoreCD(managerCD2);
-		
-		ArrayList<SelectEmployeeBean> SelectEmployee = userDao.SelectEmployeeCDOfShiftRegister(storeCD);
-		
-		
-	}
-
 }

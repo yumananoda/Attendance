@@ -12,13 +12,13 @@ public class RegistrationClockDao extends CommonDao {
 	public void registrationClockIn(LocalDateTime now, int employeeCD) {
 		String sql = "INSERT INTO time_records(employeeCD, clock_in_time, clock_out_time) VALUES(?,?,?)";
         try (Connection con = DriverManager.getConnection(URL, USER, PASS);
-             PreparedStatement statement = con.prepareStatement(sql)) {
-        	
-        	statement.setInt(1, employeeCD);
-        	statement.setObject(2, now);
-        	statement.setObject(3, null);
-        	statement.executeQuery();
-           
+            PreparedStatement statement = con.prepareStatement(sql)) {
+            
+            statement.setInt(1, employeeCD);
+            statement.setObject(2, now);
+            statement.setObject(3, null);
+            statement.executeQuery();
+            
             statement.close();
 			con.close();
 
@@ -31,13 +31,13 @@ public class RegistrationClockDao extends CommonDao {
 	public void registrationClockOut(LocalDateTime now, int employeeCD) {
 		String sql = "UPDATE time_records SET clock_out_time=? WHERE employeeCD=? ORDER BY recordCD DESC LIMIT 1;";
         try (Connection con = DriverManager.getConnection(URL, USER, PASS);
-        		PreparedStatement statement = con.prepareStatement(sql)) {
+            PreparedStatement statement = con.prepareStatement(sql)) {
 
-        	System.out.println("eee");
-        	statement.setObject(1, now);
-        	statement.setInt(2, employeeCD);
-        	statement.executeQuery();
-           
+            System.out.println("eee");
+            statement.setObject(1, now);
+            statement.setInt(2, employeeCD);
+            statement.executeQuery();
+            
             statement.close();
 			con.close();
 
@@ -60,7 +60,7 @@ public class RegistrationClockDao extends CommonDao {
 //
 //        } catch (SQLException e) {
 //            e.printStackTrace();
-//            // エラーハンドリングを適切に行う
+//            エラーハンドリングを適切に行う
 //        }
 //    }
 }

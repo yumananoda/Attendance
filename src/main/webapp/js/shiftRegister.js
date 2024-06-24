@@ -7,15 +7,15 @@ const selectWeekEl = document.getElementById("selectWeek");
 const inputTimeGroupEl = document.getElementById("inputTimeGroup");
 
 for (const day of Object.values(DAYS)) {
-  console.log("day:", day);
-  const div = document.createElement("div");
-  const daybtn = document.createElement("button");
-  daybtn.innerText = DAY_TEXTS[day];
-  daybtn.value = day;
-  div.appendChild(daybtn);
-  selectWeekEl.appendChild(div);
+	console.log("day:", day);
+	const div = document.createElement("div");
+	const daybtn = document.createElement("button");
+	daybtn.innerText = DAY_TEXTS[day];
+	daybtn.value = day;
+	div.appendChild(daybtn);
+	selectWeekEl.appendChild(div);
 
-  daybtn.addEventListener("click", function (event) {
+	daybtn.addEventListener("click", function (event) {
     const selectValue = event.target.value;
 
     // const index = dayElements.findIndex((x) => x === selectValue);
@@ -27,33 +27,33 @@ for (const day of Object.values(DAYS)) {
 
     const index = dayElements.findIndex(({ day }) => day === selectValue);
     if (index === -1) {
-      dayElements.push({
-        day: selectValue,
-        startTime: "",
-        endTime: "",
-      });
-    } else {
-      dayElements.splice(index, 1);
-    }
-    dayElements.sort(function (first, second) {
-      if (first > second) {
-        return 1;
-      } else if (first < second) {
-        return -1;
-      } else {
-        return 0;
-      }
+		dayElements.push({
+		day: selectValue,
+		startTime: "",
+		endTime: "",
+		});
+	} else {
+		dayElements.splice(index, 1);
+	}
+	dayElements.sort(function (first, second) {
+		if (first > second) {
+		return 1;
+		} else if (first < second) {
+		return -1;
+		} else {
+		return 0;
+		}
     });
     daybtn.classList.toggle("gray");
     showDayElements();
-  });
+	});
 }
 
 function showDayElements() {
-  while (inputTimeGroupEl.firstChild) {
-    inputTimeGroupEl.removeChild(inputTimeGroupEl.firstChild);
-  }
-  for (let i = 0; i < dayElements.length; i++) {
+	while (inputTimeGroupEl.firstChild) {
+		inputTimeGroupEl.removeChild(inputTimeGroupEl.firstChild);
+	}
+	for (let i = 0; i < dayElements.length; i++) {
     const { day, startTime, endTime } = dayElements[i];
     const dayTextEl = document.createElement("div");
     dayTextEl.id = `item_${day}`;
@@ -64,11 +64,11 @@ function showDayElements() {
     startTimeBox.value = startTime;
     startTimeBox.type = "time";
     startTimeBox.addEventListener("change", (event) => {
-      console.log("e: ", event.target.value);
-      const index = dayElements.findIndex((x) => x.day === day);
-      if (index !== -1) {
-        dayElements[index].startTime = event.target.value;
-      }
+		console.log("e: ", event.target.value);
+		const index = dayElements.findIndex((x) => x.day === day);
+		if (index !== -1) {
+			dayElements[index].startTime = event.target.value;
+		}
     });
     startTimeBox.classList.add("startTime");
     const endTimeBox = document.createElement("input");
@@ -76,34 +76,34 @@ function showDayElements() {
     endTimeBox.type = "time";
     endTimeBox.classList.add("endTime");
     endTimeBox.addEventListener("change", (event) => {
-      console.log("e: ", event.target.value);
-      const index = dayElements.findIndex((x) => x.day === day);
-      if (index !== -1) {
-        dayElements[index].endTime = event.target.value;
-      }
+		console.log("e: ", event.target.value);
+		const index = dayElements.findIndex((x) => x.day === day);
+		if (index !== -1) {
+			dayElements[index].endTime = event.target.value;
+		}
     });
     dayTextEl.appendChild(dayTextPr);
     dayTextEl.appendChild(startTimeBox);
     dayTextEl.appendChild(endTimeBox);
 
     inputTimeGroupEl.appendChild(dayTextEl);
-  }
+	}
 }
 
 const btn = document.createElement("button");
 btn.innerText = "送信";
 btn.addEventListener("click", function (event) {
-  console.log("送信しました");
-  console.log(dayElements);
-  if (
-    dayElements.some(
-      ({ startTime, endTime }) => startTime === "" || endTime === ""
-    )
-  ) {
-    console.log("入力されていない項目があります。");
-  } else {
-    console.log("実行");
-  }
+	console.log("送信しました");
+	console.log(dayElements);
+	if (
+		dayElements.some(
+		({ startTime, endTime }) => startTime === "" || endTime === ""
+		)
+	) {
+		console.log("入力されていない項目があります。");
+	} else {
+		console.log("実行");
+	}
   //   n = inputTimeGroupEl.children;
 
   //   for (let i = 0; i < children.length; i++) {

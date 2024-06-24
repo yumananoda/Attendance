@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.UserDao;
+import dao.EmployeeDao;
 import models.UserBean;
 
 /**
@@ -39,8 +39,8 @@ public class LoginServlet extends HttpServlet {
 		int employeeCD2 =Integer.parseInt(employeeCD);
 		
 		//アカウント検索
-		UserDao dao = new UserDao();
-		UserBean user = dao.findUser(employeeCD2, password);
+		EmployeeDao employeeDao = new EmployeeDao();
+		UserBean user = employeeDao.findUser(employeeCD2, password);
 		System.out.println(user);
 		
 		//画面遷移
