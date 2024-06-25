@@ -40,6 +40,7 @@ public class EmployeeRegisterServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
 		System.out.println("called");
 		ArrayList<UserBean> EmployeeRegisterList = new ArrayList<>();
 		EmployeeDao employeeDao = new EmployeeDao();

@@ -57,6 +57,8 @@ System.out.println(clockIn);
 
 <a href = "TimeRecordServlet">勤怠状況</a>
 <a href = "EmployeeRegister.jsp">従業員登録</a>
+<a href = "SelectEmployeeServlet">シフト登録</a>
+
 
 </body>
 </html>

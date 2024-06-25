@@ -13,8 +13,8 @@ import models.UserBean;
 
 public class EmployeeDao extends CommonDao {
 	public UserBean findUser(int args_employeeCD, String args_password) {
+		String query = "SELECT * FROM users WHERE employeeCD=? AND password=?"; 
         try (Connection con = DriverManager.getConnection(URL, USER, PASS);
-            String query = "SELECT * FROM users WHERE employeeCD=? AND password=?"; 
             PreparedStatement statement = con.prepareStatement(query)) {
 
             statement.setInt(1, args_employeeCD);
@@ -45,8 +45,8 @@ public class EmployeeDao extends CommonDao {
     }
 	
 	public void Register(UserBean EmployeeRegister) {
+		String query = "INSERT INTO users(name, email, password, storeCD, hire_date, position) VALUES(?,?,?,?,?,?)"; 
         try (Connection con = DriverManager.getConnection(URL, USER, PASS);
-            String query = "INSERT INTO users(name, email, password, storeCD, hire_date, position) VALUES(?,?,?,?,?,?)"; 
             PreparedStatement statement = con.prepareStatement(query)) {
 
             statement.setString(1, EmployeeRegister.getName());
@@ -66,8 +66,8 @@ public class EmployeeDao extends CommonDao {
 	}
 
     public Integer findStoreCD(int args_managerCD){
+    	 String query = "SELECT storeCD FROM storeManagers WHERE managerCD = ?";
         try (Connection con = DriverManager.getConnection(URL, USER, PASS);
-            String query = "SELECT storeCD FROM storeManagers WHERE managerCD = ?";
             PreparedStatement statement = con.prepareStatement(query)) {
                 statement.setInt(1, args_managerCD);
                 ResultSet rs = statement.executeQuery();
@@ -87,15 +87,15 @@ public class EmployeeDao extends CommonDao {
     
     public ArrayList<SelectEmployeeBean> findEmployeeCDOfShiftRegister(int args_storeCD){
         ArrayList<SelectEmployeeBean> employees = new ArrayList<SelectEmployeeBean>();
+        String query = "SELECT employeeCD, name FROM users WHERE storeCD = ?";
         try (Connection con = DriverManager.getConnection(URL, USER, PASS);
-            String query = "SELECT employeeCD, name FROM users WHERE storeCD = ?";
             PreparedStatement statement = con.prepareStatement(query)) {
                 statement.setInt(1, args_storeCD);
                 ResultSet rs = statement.executeQuery();
                 
                 while (rs.next()) {
                     int employeeCD = rs.getInt("employeeCD");
-                    String name = rs.getInt("name");
+                    String name = rs.getString("name");
 
                     SelectEmployeeBean employee  = new SelectEmployeeBean(employeeCD, name);
                     employees.add(employee);
@@ -105,6 +105,6 @@ public class EmployeeDao extends CommonDao {
             }catch (SQLException e) {
             e.printStackTrace();
         }
-		return SelectEmployees;
+		return employees;
     }
 }

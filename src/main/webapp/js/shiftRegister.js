@@ -3,8 +3,11 @@ import { DAY_TEXTS } from "./const.js";
 
 const dayElements = [];
 
+const employeeCD = document.getElementById("employeeCD");
 const selectWeekEl = document.getElementById("selectWeek");
 const inputTimeGroupEl = document.getElementById("inputTimeGroup");
+
+console.log("employeeCD", employeeCD.value);
 
 for (const day of Object.values(DAYS)) {
 	console.log("day:", day);
@@ -29,6 +32,7 @@ for (const day of Object.values(DAYS)) {
     if (index === -1) {
 		dayElements.push({
 		day: selectValue,
+		employeeCD: employeeCD.value,
 		startTime: "",
 		endTime: "",
 		});

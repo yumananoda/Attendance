@@ -19,13 +19,13 @@ import models.TimeRecordsBean;
  * Servlet implementation class AttendanceStatusServlet
  */
 @WebServlet("/TimeRecordServlet")
-public class AttendanceStatusServlet extends HttpServlet {
+public class TimeRecordServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AttendanceStatusServlet() {
+    public TimeRecordServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
