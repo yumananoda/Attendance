@@ -64,10 +64,6 @@ public class EmployeeRegisterServlet extends HttpServlet {
 
 		String requestBody = sb.toString();
 		
-		
-		while ((line = reader.readLine()) != null) {
-			
-		}
 		ObjectMapper objectMapper = new ObjectMapper();
 		System.out.println("requestBody:");
 		System.out.println(requestBody);
