@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import models.ShiftRegisterBean;
 
-public class ShiftRegisterDao extends CommonDao {
+public class ShiftDao extends CommonDao {
 	public void shiftRegister(ShiftRegisterBean shift) {
 		String sql = "INSERT INTO shift(employeeCD, shift_day, start_time, end_time) VALUES(?,?,?,?)";
 		try (Connection con = DriverManager.getConnection(URL, USER, PASS);

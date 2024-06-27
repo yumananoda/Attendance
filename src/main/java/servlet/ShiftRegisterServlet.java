@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import dao.ShiftRegisterDao;
+import dao.ShiftDao;
 import models.ShiftRegisterBean;
 
 /**
@@ -49,7 +49,7 @@ public class ShiftRegisterServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		System.out.println("called");
 		ArrayList<ShiftRegisterBean> ShiftRegisterList = new ArrayList<>();
-		ShiftRegisterDao shiftDao = new ShiftRegisterDao();
+		ShiftDao shiftDao = new ShiftDao();
 //		HttpSession session = request.getSession();
 //		System.out.println(session);
 //		String managerCD = (String)session.getAttribute("employeeCD");

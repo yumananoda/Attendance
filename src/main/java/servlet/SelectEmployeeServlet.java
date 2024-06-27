@@ -26,8 +26,6 @@ public class SelectEmployeeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		HttpSession session = request.getSession();
 		String managerCD = (String)session.getAttribute("employeeCD");

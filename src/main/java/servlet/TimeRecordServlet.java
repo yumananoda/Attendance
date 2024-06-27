@@ -16,7 +16,7 @@ import dao.TimeRecordDao;
 import models.TimeRecordsBean;
 
 /**
- * Servlet implementation class AttendanceStatusServlet
+ * Servlet implementation class TimeRecordServlet
  */
 @WebServlet("/TimeRecordServlet")
 public class TimeRecordServlet extends HttpServlet {

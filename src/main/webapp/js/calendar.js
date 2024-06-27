@@ -158,7 +158,6 @@ function getDateAndDay() {
     // detail.innerText = "詳細へ";
     // const dateText = currentYear + "-" + String(currentMonth).padStart(2,"0") + "-" + String(i).padStart(2,"0");
 
-    // detail.href = "/DateTime/AttendanceDetailServlet?dateText=" + dateText;
     col.appendChild(date);
     col.appendChild(week);
     col.appendChild(clockIn);

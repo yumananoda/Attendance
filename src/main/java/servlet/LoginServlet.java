@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
 			System.out.print("ログイン成功");
 			session.setAttribute("employeeCD", String.valueOf(user.getEmployeeCD()));
 			
-			request.getRequestDispatcher("/Attendance.jsp").forward(request, response);
+			request.getRequestDispatcher("/Clock.jsp").forward(request, response);
 		}else {
 			System.out.print("ログイン失敗");
 			request.setAttribute("message", "従業員コードかパスワードが違います。");

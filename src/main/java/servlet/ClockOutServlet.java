@@ -41,6 +41,6 @@ public class ClockOutServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession(true);
 		session.removeAttribute("clockIn");
-		request.getRequestDispatcher("/Attendance.jsp").forward(request, response);
+		request.getRequestDispatcher("/Clock.jsp").forward(request, response);
 	}
 }

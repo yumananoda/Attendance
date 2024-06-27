@@ -11,20 +11,20 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import dao.ShiftRegisterDao;
+import dao.ShiftDao;
 import models.ShiftRegisterBean;
 
 /**
- * Servlet implementation class ShowShiftRegisterServlet
+ * Servlet implementation class DispShiftRegisterServlet
  */
-@WebServlet("/ShowShiftRegisterServlet")
-public class ShowShiftRegisterServlet extends HttpServlet {
+@WebServlet("/DispShiftRegisterServlet")
+public class DispShiftRegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowShiftRegisterServlet() {
+    public DispShiftRegisterServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,7 +39,7 @@ public class ShowShiftRegisterServlet extends HttpServlet {
 		System.out.println("employeeCD");
 		System.out.println(employeeCD);
 		
-		ShiftRegisterDao shiftDao = new ShiftRegisterDao();
+		ShiftDao shiftDao = new ShiftDao();
 		ArrayList<ShiftRegisterBean> shift = shiftDao.findShiftByEmployeeCD(employeeCD2);
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(shift);

@@ -9,13 +9,13 @@ const selectWeekEl = document.getElementById("selectWeek");
 const inputTimeGroupEl = document.getElementById("inputTimeGroup");
 
 console.log("employeeCD", employeeCD.value);
-const shift = JSON.parse(shiftEl.value);
+const shift = JSON.parse(shiftEl.value); //jsのJSONオブジェクトに変換
 console.log("shift: ", shift);
 
 window.addEventListener("DOMContentLoaded", () => {
 	console.log("DOMContentLoaded");
 	dayElements = shift;
-  	showDayElements();
+  showDayElements();
 });
 
 for (const day of Object.values(DAYS)) {
@@ -42,7 +42,8 @@ for (const day of Object.values(DAYS)) {
     );
     if (index === -1) {
       dayElements.push({
-        employeeCD: employeeCD.value,
+        // employeeCD: employeeCD.value,
+        employeeCD: shift.employeeCD,
         shift_day: selectValue,
         startTime: "",
         endTime: "",

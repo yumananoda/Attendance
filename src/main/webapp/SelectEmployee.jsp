@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="models.SelectEmployeeBean" %>
 <% ArrayList<SelectEmployeeBean> selectEmployees = (ArrayList<SelectEmployeeBean>)session.getAttribute("selectEmployee"); %>
@@ -8,20 +7,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>EndUser and FlontEnd</title>
+<title>従業員選択</title>
 </head>
 <body>
+
 	<div>
 		<table>
+            <tr>
+                <th>従業員コード</th>
+                <th>氏名</th>
+                <th></th>
+            </tr>
 			<%  for(SelectEmployeeBean selectEmployee : selectEmployees){ %>
 				<tr>
 					<td><%= selectEmployee.getEmployeeCD() %></td>
 					<td><%= selectEmployee.getName() %></td>
-					<td><a href="ShowShiftRegisterServlet?employeeCD=<%= selectEmployee.getEmployeeCD() %>">遷移</a></td>
+					<td><a href="DispShiftRegisterServlet?employeeCD=<%= selectEmployee.getEmployeeCD() %>">遷移</a></td>
 				</tr>
 			<% } %>
 		</table>
-	</div>
-	
+	</div>	
 </body>
 </html>

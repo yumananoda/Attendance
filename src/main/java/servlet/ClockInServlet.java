@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import dao.RegistrationClockDao;
 
 /**
- * Servlet implementation class AttendanceServlet
+ * Servlet implementation class ClockInServlet
  */
 @WebServlet("/ClockInServlet")
 public class ClockInServlet extends HttpServlet {
@@ -41,7 +41,7 @@ public class ClockInServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("clockIn",now);
-		request.getRequestDispatcher("/Attendance.jsp").forward(request, response);
+		request.getRequestDispatcher("/Clock.jsp").forward(request, response);
 	}
 
 }
