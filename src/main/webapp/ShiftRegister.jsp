@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 <%
 	String employeeCD = (String)request.getAttribute("employeeCD");
+	String shift = (String)request.getAttribute("shift");
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +14,7 @@
 </head>
 <body>
 	<input id="employeeCD" type="hidden" value=<%= employeeCD %> />
+	<input id="shift" type="hidden" value=<%= shift %> />
 	<div id="selectWeek"></div>
 	<div id="inputTimeGroup"></div>
 	

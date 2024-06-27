@@ -76,21 +76,30 @@ public class ShiftRegisterServlet extends HttpServlet {
 		System.out.println("dataList:");
 		System.out.println(dataList);
 		for(Map<String, Object> data: dataList) {
-			int employeeCD = (int) data.get("employeeCD");
-			int shift_day = (int) data.get("shift_day");
+			System.out.println(data);
+			String employeeCD = (String) data.get("employeeCD");
+			System.out.println(employeeCD);
+			int employeeCD2 = Integer.parseInt(employeeCD);
+			String shift_day = (String) data.get("shift_day");
+			int shift_day2 = Integer.parseInt(shift_day);
+			System.out.println(shift_day2);
 			
-			String start_time = (String) data.get("start_time");
+			String start_time = (String) data.get("startTime");
 			Time start_time2 = Time.valueOf(start_time + ":00");
+			System.out.println(start_time2);
 			
-			String end_time = (String) data.get("end_time");
+			String end_time = (String) data.get("endTime");
 			Time end_time2 = Time.valueOf(end_time + ":00");
+			System.out.println(end_time2);
 			
-			ShiftRegisterBean ShiftRegisterRequest = new ShiftRegisterBean(employeeCD, shift_day, start_time2, end_time2);
+			ShiftRegisterBean ShiftRegisterRequest = new ShiftRegisterBean(employeeCD2, shift_day2, start_time2, end_time2);
 			ShiftRegisterList.add(ShiftRegisterRequest);
 		}
+		System.out.println(ShiftRegisterList);
 		for(ShiftRegisterBean ShiftRegisterRequest : ShiftRegisterList) {
 			shiftDao.shiftRegister(ShiftRegisterRequest);
 		}
+		System.out.println(ShiftRegisterList);
 	}
 
 }

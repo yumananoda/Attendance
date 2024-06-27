@@ -1,12 +1,18 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import dao.ShiftRegisterDao;
+import models.ShiftRegisterBean;
 
 /**
  * Servlet implementation class ShowShiftRegisterServlet
@@ -29,9 +35,18 @@ public class ShowShiftRegisterServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String employeeCD = (String)request.getParameter("employeeCD");
+		int employeeCD2= Integer.parseInt(employeeCD);
 		System.out.println("employeeCD");
 		System.out.println(employeeCD);
+		
+		ShiftRegisterDao shiftDao = new ShiftRegisterDao();
+		ArrayList<ShiftRegisterBean> shift = shiftDao.findShiftByEmployeeCD(employeeCD2);
+		ObjectMapper mapper = new ObjectMapper();
+		String json = mapper.writeValueAsString(shift);
+		System.out.println(shift);
+		
 		request.setAttribute("employeeCD", employeeCD);
+		request.setAttribute("shift", json);
 		request.getRequestDispatcher("/ShiftRegister.jsp").forward(request, response);
 	}
 
