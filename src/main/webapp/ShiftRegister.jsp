@@ -19,6 +19,7 @@
 	<div id="inputTimeGroup"></div>
 	
 	<script type="module" src="js/const.js" ></script>
-	<script type="module" src="js/shiftRegister.js" ></script>
+<!-- 	<script type="module" src="js/shiftRegister.js" ></script> -->
+	<script type="module" src="js/shiftRegister2.js" ></script>
 </body>
 </html>

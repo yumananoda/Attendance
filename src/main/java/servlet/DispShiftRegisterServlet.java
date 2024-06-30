@@ -41,6 +41,8 @@ public class DispShiftRegisterServlet extends HttpServlet {
 		
 		ShiftDao shiftDao = new ShiftDao();
 		ArrayList<ShiftRegisterBean> shift = shiftDao.findShiftByEmployeeCD(employeeCD2);
+
+		//shiftをjson形式に変換
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(shift);
 		System.out.println(shift);
