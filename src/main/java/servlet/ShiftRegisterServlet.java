@@ -73,8 +73,8 @@ public class ShiftRegisterServlet extends HttpServlet {
 		System.out.println("requestBody:");
 		System.out.println(requestBody);
 		List<Map<String, Object>> dataList = objectMapper.readValue(requestBody, List.class);
-		System.out.println("dataList:");
-		System.out.println(dataList);
+//		System.out.println("dataList:");
+//		System.out.println(dataList);
 		
 		for(Map<String, Object> data: dataList) {
 			System.out.println("data:");
@@ -96,7 +96,7 @@ public class ShiftRegisterServlet extends HttpServlet {
 			Time end_time2 = Time.valueOf(end_time + ":00");
 			System.out.println(end_time2);
 			
-			ShiftRegisterBean ShiftRegisterRequest = new ShiftRegisterBean(employeeCD2, shift_day, start_time2, end_time2);
+			ShiftRegisterBean ShiftRegisterRequest = new ShiftRegisterBean(employeeCD2, shift_day2, start_time2, end_time2);
 			ShiftRegisterList.add(ShiftRegisterRequest);
 		}
 		System.out.println(ShiftRegisterList);
