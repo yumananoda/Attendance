@@ -47,7 +47,7 @@ public class DispShiftRegisterServlet extends HttpServlet {
 		String json = mapper.writeValueAsString(shift);
 		System.out.println(shift);
 		
-		request.setAttribute("employeeCD", employeeCD);
+		request.setAttribute("employeeCD", employeeCD2);
 		request.setAttribute("shift", json);
 		request.getRequestDispatcher("/ShiftRegister.jsp").forward(request, response);
 	}

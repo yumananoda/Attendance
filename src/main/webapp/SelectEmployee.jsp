@@ -1,4 +1,5 @@
-<%@ pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="models.SelectEmployeeBean" %>
 <% ArrayList<SelectEmployeeBean> selectEmployees = (ArrayList<SelectEmployeeBean>)session.getAttribute("selectEmployee"); %>
@@ -10,7 +11,6 @@
 <title>従業員選択</title>
 </head>
 <body>
-
 	<div>
 		<table>
             <tr>
