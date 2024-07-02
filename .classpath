@@ -19,5 +19,6 @@
 	<classpathentry kind="lib" path="C:/Users/st20214139/Desktop/仮卒論/DateTime/lib/jackson-databind-2.17.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/st20214139/Downloads/jackson-datatype-jsr310-2.17.1.jar"/>
 	<classpathentry kind="lib" path="/Users/ribea/Downloads/javax.mail.jar"/>
+	<classpathentry kind="lib" path="/Users/ribea/Downloads/activation-1.1.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
