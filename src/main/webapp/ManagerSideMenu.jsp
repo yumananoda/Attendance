@@ -60,7 +60,7 @@ System.out.println("name:" + name);
                     </a>
                 </li>
                 <li class="list">
-                    <a href="Logout.jsp">
+                    <a href="LogoutServlet">
                     <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
                     <span class="title">ログアウト</span>
                     </a>
