@@ -1,0 +1,39 @@
+@charset "UTF-8";
+.tab-button {
+    display: flex;
+/*    justify-content: space-between;*/
+    list-style: none;
+    /* カーソル形状を指先にする */
+    cursor: pointer;
+    text-align: center;
+}
+
+.tab-button .is-active {
+    background: rgb(201, 211, 243);
+    border: 2px solid rgb(177 166 223);
+    color: #FFF;
+}
+
+.tab {
+    width: calc(100% / 3);
+    border: 2px solid rgb(177 166 223);
+    padding: 8px;
+    border-bottom: none;
+}
+
+.tab-contents {
+    border-top: none;
+    background: rgb(201, 211, 243);
+}
+
+.content {
+    display: none;
+    padding: 8px;
+    text-align: left;
+}
+
+.content.is-display {
+    display: block;
+    border: 2px solid rgb(177 166 223);
+}
+

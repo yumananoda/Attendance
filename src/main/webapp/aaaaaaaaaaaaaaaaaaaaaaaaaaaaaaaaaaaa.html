@@ -1,0 +1,14 @@
+int isAdmin = (int)session.getAttribute("isAdmin"); 
+System.out.println("isAdmin:" + isAdmin);
+
+<div class="sidebar">
+	<% if(isAdmin == 1){ %>
+		<jsp:include page="ManagerSideMenu.jsp" />
+	<% }else{ %>
+		<jsp:include page="EmployeeSideMenu.jsp" />
+	<% } %>
+</div>
+
+
+
+<link rel="stylesheet" href="css/editEmployee.css" />
