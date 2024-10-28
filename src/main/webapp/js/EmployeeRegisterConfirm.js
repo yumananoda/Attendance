@@ -81,7 +81,7 @@ window.addEventListener("DOMContentLoaded", () => {
 registerForm.addEventListener("submit", async(e) => {
   console.log("INFO: ", INFO);
   e.preventDefault();
-	await fetch("/DateTime/EmployeeRegisterServlet", {
+	await fetch("/Attendance/EmployeeRegisterServlet", {
     method: "POST",
     body: JSON.stringify(INFO),
 	})

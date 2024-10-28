@@ -262,7 +262,7 @@ registerBtn.addEventListener("click", () => {
     errorEl.innerText = "入力されていない項目があります。";
   } else {
     errorEl.innerText = "";
-    fetch("/DateTime/ShiftRegisterServlet", {
+    fetch("/Attendance/ShiftRegisterServlet", {
       method: "POST",
       body: JSON.stringify(shift),
     }).then((response) => {

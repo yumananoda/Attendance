@@ -249,7 +249,7 @@ registerBtn.addEventListener('click', (e) => {
     )
     console.log(changeData);
     console.log("実行");
-    fetch("/DateTime/ShiftChangeServlet", {
+    fetch("/Attendance/ShiftChangeServlet", {
         method: "POST",
         body: JSON.stringify(changeData),
     })

@@ -452,7 +452,7 @@ const getDateAndDay = () => {
     if (findWorkingDate) {
       editHref.innerText = "勤怠修正";
       const { recordCD, clockInTime, clockOutTime } = findWorkingDate;
-      editHref.href = `/DateTime/DispEditTimeRecordServlet?employeeCD=${employeeCD}&name=${name}&recordCD=${recordCD}&clockInTime=${clockInTime}&clockOutTime=${clockOutTime}`;
+      editHref.href = `/Attendance/DispEditTimeRecordServlet?employeeCD=${employeeCD}&name=${name}&recordCD=${recordCD}&clockInTime=${clockInTime}&clockOutTime=${clockOutTime}`;
       edit.appendChild(editHref);
     }
     

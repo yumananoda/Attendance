@@ -40,7 +40,7 @@ public class TimeRecordDao extends CommonDao{
 		return TimeRecords;
     }
 	
-	public void updateTimeRecord(int recordCD, LocalDateTime lafterClockInTime,  LocalDateTime afterClockOutTime) {
+	public void upDateTimeRecord(int recordCD, LocalDateTime lafterClockInTime,  LocalDateTime afterClockOutTime) {
 		String sql = "UPDATE time_records SET clock_in_time=?, clock_out_time=? WHERE recordCD=?;";
         try (Connection con = DriverManager.getConnection(URL, USER, PASS);
             PreparedStatement statement = con.prepareStatement(sql)) {

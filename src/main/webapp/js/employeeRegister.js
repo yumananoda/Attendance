@@ -138,7 +138,7 @@ addBtn.addEventListener("click", async function (event) {
   const inputEmail = formEl.email.value;
   const inputPosition = formEl.position.value;
   const inputHireDate = formEl.hireDate.value;
-  registerBtn.disabled = false;
+  
 
   if(inputName === "" || inputEmail === "" || inputPosition === "" || inputHireDate === ""){
     errorEl.textContent = "エラー:入力されていない項目があります。";
@@ -157,7 +157,7 @@ addBtn.addEventListener("click", async function (event) {
     return;
   }
 
-  fetch("/DateTime/EmployeeRegisterCheckServlet", {
+  fetch("/Attendance/EmployeeRegisterCheckServlet", {
     method: "POST",
     body: inputEmail,
   })
@@ -187,6 +187,11 @@ addBtn.addEventListener("click", async function (event) {
         agreementsValue.value = "1";
         identifyPosition();
         return;
+      }
+
+      console.log(INFO.length);
+      if(INFO.length != 0){
+        registerBtn.disabled = false;
       }
       console.log(INFO);
       registerShow();
@@ -229,14 +234,14 @@ registerBtn.addEventListener("click", function () {
     INFO[i].password = newPassword;
   }
   console.log(INFO);
-  // fetch("/DateTime/DispEmployeeRegisterComfirmServlet", {
+  // fetch("/Attendance/DispEmployeeRegisterComfirmServlet", {
   //   method: "POST",
   //   body: JSON.stringify(INFO),
   // })
   // .then(
   //   console.log("success")
   // )
-  window.location.href = "/DateTime/EmployeeRegisterConfirm.jsp";	
+  window.location.href = "/Attendance/EmployeeRegisterConfirm.jsp";	
   sessionStorage.setItem("INFO", JSON.stringify(INFO));
   // INFO.forEach(({ name, email }) => {
   //   sendEmail({ name, email });

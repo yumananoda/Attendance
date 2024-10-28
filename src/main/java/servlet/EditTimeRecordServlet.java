@@ -23,7 +23,6 @@ import dao.TimeRecordDao;
 @WebServlet("/EditTimeRecordServlet")
 public class EditTimeRecordServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -58,14 +57,14 @@ public class EditTimeRecordServlet extends HttpServlet {
         Time afterClockOutTime2 = Time.valueOf(afterClockOutTime + ":00");
 		System.out.println("afterClockInTime:" + afterClockOutTime2);
 		System.out.println("afterClockInTime:" + afterClockInTime2);
-       
-		String dateTimeString1 = selectDate + " " + afterClockInTime2;
+
+		String DateTimeString1 = selectDate + " " + afterClockInTime2;
 		DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-		LocalDateTime beforelocalDateTime = LocalDateTime.parse(dateTimeString1, formatter1);
-		  
-		String dateTimeString2 = selectDate + " " + afterClockOutTime2;
+		LocalDateTime beforelocalDateTime = LocalDateTime.parse(DateTimeString1, formatter1);
+
+		String DateTimeString2 = selectDate + " " + afterClockOutTime2;
 		DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-		LocalDateTime afterlocalDateTime = LocalDateTime.parse(dateTimeString2, formatter2);
+		LocalDateTime afterlocalDateTime = LocalDateTime.parse(DateTimeString2, formatter2);
 
 		
         if (afterlocalDateTime.isBefore(beforelocalDateTime)) {
@@ -75,7 +74,7 @@ public class EditTimeRecordServlet extends HttpServlet {
         System.out.println("afterlocalDateTime:" + afterlocalDateTime);
         
         TimeRecordDao timeRecordDao = new TimeRecordDao();
-        timeRecordDao.updateTimeRecord(recordCD2, beforelocalDateTime, afterlocalDateTime);
+        timeRecordDao.upDateTimeRecord(recordCD2, beforelocalDateTime, afterlocalDateTime);
 
         request.getRequestDispatcher("/EditTimeRecordComp.jsp").forward(request, response);
 	}

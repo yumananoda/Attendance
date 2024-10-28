@@ -51,7 +51,7 @@ editTimeRecordForm.addEventListener('submit', (e) => {
   )
   console.log(timeRecord);
   console.log("実行");
-  fetch("/DateTime/EditTimeRecordServlet", {
+  fetch("/Attendance/EditTimeRecordServlet", {
     method: "POST",
     body: JSON.stringify(timeRecord),
   }).finally(() => {
