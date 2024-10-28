@@ -75,6 +75,7 @@ System.out.println("isAdmin:" + isAdmin);
 			</div>
 		</div>
 	</div>
+	<div id="error"></div>
 </div>
 <script type="module" src="js/const.js" ></script>
 <script type="module" src="js/shiftChange.js" ></script>

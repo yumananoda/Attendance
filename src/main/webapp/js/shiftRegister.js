@@ -248,7 +248,7 @@ document.querySelector(".next").addEventListener("click", () => {
 });
 
 resetBtn.addEventListener("click", () => {
-  console.log("aaa");
+  console.log("reset");
   window.location.href = `DispShiftRegisterServlet?employeeCD=${employeeCD}`;
 });
 

@@ -17,6 +17,9 @@ const exceptionShift = document.getElementById("exceptionShift").value;
 const exceptionShiftData = JSON.parse(exceptionShift);
 console.log(exceptionShiftData)
 const changeData = [];
+const errorEl = document.getElementById("error");
+const earliestTimeString = "09:30";
+const latestTimeString = "21:30";
 
 
 
@@ -45,6 +48,14 @@ document.addEventListener("DOMContentLoaded", function () {
     checkShift();
     dispChangeHistory();
 });
+
+const convertToTime = (timeString) => {
+    const [hours, minutes] = timeString.split(":").map(Number);
+    const date = new Date();
+    date.setHours(hours);
+    date.setMinutes(minutes);
+    return date;
+};
 
 
 applicationCategory.addEventListener('change', (e) => {
@@ -264,4 +275,42 @@ closeBtn.addEventListener('click', () => {
     selectDate.value = formattedDate;
     selectDate.min = formattedDate;
     checkShift();
+})
+
+changeTimeStart.addEventListener('change', () => {
+    const startTimeString = changeTimeStart.value;
+    const endTimeString = changeTimeEnd.value;
+    const startInputTime = convertToTime(startTimeString);
+    const endInputTime = convertToTime(endTimeString);
+    const earliestTime = convertToTime(earliestTimeString);
+    const latestTime = convertToTime(latestTimeString);
+
+    console.log(startInputTime);
+    console.log(earliestTimeString);
+    console.log(latestTimeString);
+    if (startInputTime < earliestTime || startInputTime > latestTime || endInputTime < earliestTime || endInputTime > latestTime) {
+        errorEl.innerText = "営業時間外の時刻が入力されています。";
+        registerBtn.disabled = true;
+    } else {
+        errorEl.innerText = "";
+        registerBtn.disabled = false;
+    }
+})
+
+changeTimeEnd.addEventListener('change', () => {
+    const startTimeString = changeTimeStart.value;
+    const endTimeString = changeTimeEnd.value;
+    const startInputTime = convertToTime(startTimeString);
+    const endInputTime = convertToTime(endTimeString);
+    const earliestTime = convertToTime(earliestTimeString);
+    const latestTime = convertToTime(latestTimeString);
+    console.log(earliestTimeString);
+    console.log(latestTimeString);
+    if (startInputTime < earliestTime || startInputTime > latestTime || endInputTime < earliestTime || endInputTime > latestTime) {
+        errorEl.innerText = "営業時間外の時刻が入力されています。";
+        registerBtn.disabled = true;
+    } else {
+        errorEl.innerText = "";
+        registerBtn.disabled = false;
+    }
 })
