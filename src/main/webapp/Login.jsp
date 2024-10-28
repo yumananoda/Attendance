@@ -4,21 +4,24 @@
 <%-- <%@ page import="java.util.Date, java.text.DateFormat" %> --%>
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>ログイン</title>
-  </head>
-  <body>
-    <!--ログイン-->
+<head>
+  <meta charset="UTF-8">
+  <title>ログイン</title>
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+<div class="contents">
+  <img src="img/login.jpg" alt="login" id="pic" class="login_pic" />
+  <div class="main">
+    <h2>ログイン</h2>
     <form action="LoginServlet" method="POST">
-<!--     <form action="LogoutServlet3" method="POST"> -->
-      <div>
-        <label for="employeeCD">従業員コード:</label>
-        <input type="text" name="employeeCD" pattern="\d*">
+      <div class="employeeCD">
+        <label for="employeeCD" class="employeeCDLabel">従業員コード</label>
+        <input type="text" name="employeeCD" class="employeeCDBox pattern="\d*">
       </div>
-      <div>
-        <label for="pass">パスワード:</label>
-        <input type="password" id="pass" name="password" minlength="8" required />
+      <div class="password">
+        <label for="pass" class="passLabel">パスワード</label>
+        <input type="password" id="pass" class="passBox" name="password" minlength="8" required />
       </div>
       <button type="submit" value="login" >ログイン</button>
       <p>
@@ -27,5 +30,7 @@
       <% } %>
       </p>
     </form>
-  </body>
+  </div>
+</div>
+</body>
 </html>

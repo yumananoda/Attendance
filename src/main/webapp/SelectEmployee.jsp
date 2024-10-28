@@ -29,8 +29,8 @@ System.out.println("isAdmin:" + isAdmin);
 	<div>
 		<label><input type="checkbox" id="retireCheck" />退職済</label>
 		<div id="employed" class="checkbox selected">
-			<%  for(SelectEmployeeBean selectEmployee : selectEmployees){ %>
 			<table>
+				<%  for(SelectEmployeeBean selectEmployee : selectEmployees){ %>
 				<tr>
 					<th>従業員コード</th>
 					<th>氏名</th>
@@ -49,13 +49,13 @@ System.out.println("isAdmin:" + isAdmin);
 		</div>
 	
 		<div id="retired" class="checkbox">
-			<%  for(SelectEmployeeBean selectRetireEmployee : selectRetireEmployees){ %>
 			<table>
 				<tr>
 					<th>従業員コード</th>
 					<th>氏名</th>
 					<th></th>
 				</tr>
+				<%  for(SelectEmployeeBean selectRetireEmployee : selectRetireEmployees){ %>
 				<tr>
 					<td><%= selectRetireEmployee.getEmployeeCD() %></td>
 					<td><%= selectRetireEmployee.getName() %></td>

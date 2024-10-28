@@ -43,7 +43,7 @@ body{
     max-width: 700px;
     font-size: 8vh; 
     white-space: nowrap;
-    background-color: #white;
+    background-color: white;
     overflow: hidden;
 }
 
@@ -86,7 +86,7 @@ body{
 }
 
 .flex-item{
-    heigt: 30px;
+    height: 30px;
     width: 100%;
     border: 3px solid;
     font-size: 3em;

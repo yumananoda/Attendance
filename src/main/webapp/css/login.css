@@ -1,0 +1,88 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.contents{
+    overflow: hidden;
+}
+
+.login_pic{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.main{
+    position: absolute;
+    width: 55%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #c1d3d494;
+    filter: drop-shadow(0 0 20px #006d7b);
+    /* border-radius: 10%; */
+}
+
+h2{
+    position: absolute;
+    top: 20%;
+    left: 40%
+}
+
+.employeeCD{
+    
+    
+}
+
+.employeeCDLabel{
+    position: absolute;
+    display: block;
+    top: 35%;
+    left: 15%;
+    font-size: 1.5em;
+}
+
+.employeeCDBox{
+    position: absolute;
+    display: block;
+    top: 40%;
+    left: 15%;
+    font-size: 2em;
+    border-radius: 15px;
+    background-color: #ffffff70;
+}
+
+.passLabel{
+    position: absolute;
+    display: block;
+    top: 47%;
+    left: 15%;
+    font-size: 1.5em;
+}
+
+.passBox{
+    position: absolute;
+    display: block;
+    top: 52%;
+    left: 15%;
+    font-size: 2em;
+    border-radius: 15px;
+    background-color: #ffffff70;
+}
+
+button{
+    position: absolute;
+    width: 67%;
+    height: 40px;
+    padding: 10px 20px;
+    top: 70%;
+    left: 15%;
+    background-color: white;
+    color: #b8d3d7;
+    line-height: 20px;
+    padding-left:  20px;
+    padding-right:  20px;
+    font-size: 1.5em;
+    border-radius: 15px;
+}
