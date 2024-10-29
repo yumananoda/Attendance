@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
+
 *{
     padding: 0;
     margin: 0;
+     font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 .contents{
@@ -27,7 +30,7 @@
 h2{
     position: absolute;
     top: 20%;
-    left: 40%
+    left: 40%;
 }
 
 .employeeCD{
@@ -38,7 +41,7 @@ h2{
 .employeeCDLabel{
     position: absolute;
     display: block;
-    top: 35%;
+    top: 160px;
     left: 15%;
     font-size: 1.5em;
 }
@@ -46,9 +49,9 @@ h2{
 .employeeCDBox{
     position: absolute;
     display: block;
-    top: 40%;
+    top: 190px;
     left: 15%;
-    font-size: 2em;
+    font-size: 1.5em;
     border-radius: 15px;
     background-color: #ffffff70;
 }
@@ -56,7 +59,7 @@ h2{
 .passLabel{
     position: absolute;
     display: block;
-    top: 47%;
+    top: 230px;
     left: 15%;
     font-size: 1.5em;
 }
@@ -64,16 +67,16 @@ h2{
 .passBox{
     position: absolute;
     display: block;
-    top: 52%;
+    top: 260px;
     left: 15%;
-    font-size: 2em;
+    font-size: 1.5em;
     border-radius: 15px;
     background-color: #ffffff70;
 }
 
 button{
     position: absolute;
-    width: 67%;
+    width: 57%;
     height: 40px;
     padding: 10px 20px;
     top: 70%;
