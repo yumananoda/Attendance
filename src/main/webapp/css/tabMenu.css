@@ -1,9 +1,7 @@
 @charset "UTF-8";
 .tab-button {
     display: flex;
-/*    justify-content: space-between;*/
     list-style: none;
-    /* カーソル形状を指先にする */
     cursor: pointer;
     text-align: center;
 }

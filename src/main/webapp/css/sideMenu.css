@@ -89,3 +89,9 @@ html, body{
 	border-left: 20px solid rgb(215, 234, 250);
 	white-space: nowrap;
 }
+
+.is-active {
+    background: rgb(201, 211, 243);
+    border: 2px solid rgb(177 166 223);
+    color: #FFF;
+}
