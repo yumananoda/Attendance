@@ -40,7 +40,9 @@ System.out.println("isAdmin:" + isAdmin);
             <input type="hidden" id="36AgreementsValue" name="36AgreementsValue" value="1" />
             <label for="36Agreements">36協定の締結の承認済</label>
         </div>
+        <span class="icon"><ion-icon name="add-circle-outline"></ion-icon></span>
         <button id="addEmployee">追加</button>
+        <span class="icon"><ion-icon name="person-add-outline"></ion-icon></span>
         <input type="submit" id="registerBtn" value="登録" disabled />
         <div id="error" class="error"></div>
     </form>
@@ -50,5 +52,7 @@ System.out.println("isAdmin:" + isAdmin);
 <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script type="module" src="js/const.js" ></script>
 <script type="module" src="js/employeeRegister.js" ></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

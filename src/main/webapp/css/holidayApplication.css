@@ -33,12 +33,13 @@ body{
 .tab-01 input:not([type="submit"]), .tab-02 input:not([type="submit"]), 
 textarea{
     background: #f4f5fa;
-    border: 2px solid #93afaf; 
+    border: 1px solid #b6bacf; 
     border-radius: 5px;
     font-size: 1em;
     color: #0b4242;
     height: 40px;
     padding: 20px;
+    margin-bottom: 15px;
 }
 
 .tab-01 input, .tab-02 input{
