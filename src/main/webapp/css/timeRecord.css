@@ -6,8 +6,7 @@
 
 body{
     position: relative;
-    width: 100vw;
-    height: 100vh;
+    color: #0b4242;
 }
 
 .sidebar{
@@ -22,6 +21,7 @@ body{
     left: 30%;
     padding: 2%;
     z-index: 0;
+    background-color: #f7ffff;
 }
 
 .btn-monthMove{
@@ -31,21 +31,23 @@ body{
 .recordTable {
     border: 2px solid;
     border-collapse: collapse;
+    background-color: #fff;
 }
 
 .tableHead{
-    background-color: #ddd;
+    /* background-color: #ddd; */
     border: 1px solid #000;
     width: 0;
     white-space: nowrap;
     border: 1px solid grey;
     text-align: center;
     padding: 2px;
+    background-color: #d3dddd;
 }
 
 .item1{
     white-space: nowrap;
-    background-color: #ddd;
+    background-color: #d3dddd;
     text-align: center;
     border: 1px solid #80808057;
     padding: 2px;
@@ -62,10 +64,11 @@ body{
     border: 2px solid;
     border-collapse: collapse;
     margin-top: 2%;
+    background-color: #fff;
 }
 
 h1{
-    background-color: #ffffff;
+    background-color: #f7ffff;
     position: sticky;
     top: 0;
 }

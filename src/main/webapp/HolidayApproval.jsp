@@ -208,6 +208,8 @@ System.out.println("isAdmin:" + isAdmin);
 		</div>
 	</div>
 	<% session.removeAttribute("sessionApplicationList"); %>
+	</div>
+	<script type="module" src="js/holidayApproval.js" ></script>
 	<script type="module" src="js/tabMenu.js" ></script>
 </div>
 </body>

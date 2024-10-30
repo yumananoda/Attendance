@@ -109,5 +109,6 @@ System.out.println("isAdmin:" + isAdmin);
 <a href = "DispHolidayApprovalServlet">有給承認</a>
 <a href = "EmployeeRegister.jsp">従業員登録</a>
 <a href = "DispSelectEmployeeServlet">従業員選択</a> --%>
+<script type="module" src="js/home.js" ></script>
 </body>
 </html>

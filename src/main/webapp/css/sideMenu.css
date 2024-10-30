@@ -1,55 +1,71 @@
 *{
 	padding: 0;
 	margin: 0;
-}
-
-html, body{
-	height: 100vh;
-}
-
-.container{
-	width: 100vw;
-	height: 100vh;
-	background-color: antiquewhite;
+	box-sizing: border-box;
 }
 
 .sidebar{
 	width: 30%;
 	height: 100vh;
-	background-color: rgb(220, 215, 250); 
+	background-color: #3da6a6; 
+	color: #ffffff;
 	/* display: flex; */
 	position: fixed;
-	overflow: hidden;
-	/* transition: width 0.5s; */
+	/* overflow: hidden; */
 }
 
 .sidebar .sidebarUL{
 	position: relative;
-	top: 28%;
-	width: 100%;
-	height: 100%;
+	top: 28vh;
 }
 
-.sidebar .sidebarUL li{
-	list-style: none;
-	background-color: rgb(201, 211, 243);
-	border-left: 20px solid rgb(215, 234, 250);
+.sidebar a:hover{
+	color: #0b4242;
+	background-color: #dceeec6e;
 }
 
 .sidebar a{
 	text-decoration: none;
 	display: flex;
 	padding: 5px;
-	border-radius: 15px 0 0 15px;
+	border-radius: 50px 0 0 50px;
+	color: #ffffff;
 }
 
-.sidebar a:hover{
-	color: white;
-	background-color: rgba(155, 96, 80, 0.776);
+.active li{
+	position:relative;
+}
+
+.active a:not(.active){
+	position: relative;
+    background-color: #f7ffff;
+    color: #0b4242;
+}
+
+.active a:before{
+	position: absolute;
+	content: "";
+	width: 30px;
+	height: 30px;
+	top: -30px;
+	right: 0;
+	border-radius: 50f7ffff
+	box-shadow: 15px 15px 0 #f7ffff;
+}
+
+.active a:after{
+	position: absolute;
+	content: "";
+	width: 30px;
+	height: 30px;
+	top: 70px;
+	right: 0;
+	border-radius: 50%;
+	box-shadow: 15px -15px 0 #f7ffff;
 }
 
 .sidebar .icon{
-	display: block;
+	/* display: block; */
 	min-width: 45px;
 	width: 20%;
 	height: 60px;
@@ -62,7 +78,7 @@ html, body{
 }
 
 .sidebar a .title{
-	display: block;
+	/* display: block; */
 	padding-left: 40px;
 	padding-right: 40px;
 	height: 60px;
@@ -73,25 +89,16 @@ html, body{
 
 .profile{
 	position: absolute;
-	top: 15%;
+	top: 5%;
     height: auto; 
     width: 100%;
 }
 
 .sidebar .profileUL li{
 	list-style: none;
-	padding: 5px;
+	padding: 2%;
 	height: auto;
-	/* line-height: 30px; */
 	font-size: 1.4em;
 	text-align: center;
-	background-color: rgb(201, 211, 243);
-	border-left: 20px solid rgb(215, 234, 250);
 	white-space: nowrap;
-}
-
-.is-active {
-    background: rgb(201, 211, 243);
-    border: 2px solid rgb(177 166 223);
-    color: #FFF;
 }

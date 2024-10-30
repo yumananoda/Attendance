@@ -6,6 +6,7 @@ const agreements = document.getElementById("agreements").value;
 const timeRecordArea = document.getElementById("timeRecordArea");
 const totalDataArea = document.getElementById("totalDataArea");
 const prescribedArea = document.getElementById("prescribedArea");
+const activeList = document.getElementById("timeLi");
 
 let timeRecordData = document.getElementById("timeRecordHolder").value;
 timeRecordData = JSON.parse(timeRecordData);
@@ -594,6 +595,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }else{
     DispStartMonth = 10;
   }
+  activeList.classList.add("active");
   getCurrent(DispStartYear, currentMonth);
   getDateAndDay();
 })

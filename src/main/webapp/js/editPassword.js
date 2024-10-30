@@ -13,6 +13,11 @@ const number = document.getElementById("number");
 const specialCharacters = document.getElementById("special-characters");
 const matchCheck = document.getElementById("match-check");
 const formBtn = document.getElementById("btn");
+const activeList = document.getElementById("passLi");
+
+window.addEventListener("DOMContentLoaded", () => {
+    activeList.classList.add("active");
+});
 
 currentEyeIcon.addEventListener('click',() => {
     if(currentPassword.type == "password"){

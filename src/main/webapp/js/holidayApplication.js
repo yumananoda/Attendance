@@ -13,8 +13,9 @@ const holidayKinds = document.getElementsByClassName("holidayKind");
 const approved = document.getElementById("approved");
 const divAll = document.getElementById("divAll");
 const divApproved = document.getElementById("divApproved");
+const activeList = document.getElementById("holidayAppLi");
 
-document.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("DOMContentLoaded", function () {
   const today = new Date();
   const yyyy = today.getFullYear();
   const mm = String(today.getMonth() + 1).padStart(2, "0");
@@ -26,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
   dateInput3.value = formattedDate;
   dateInput4.value = formattedDate;
   // startDateInput.value = formattedDate;
+  activeList.classList.add("active");
 });
 dateInput1.addEventListener("change", function () {
   dateInput2.value = dateInput1.value;

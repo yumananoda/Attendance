@@ -2,8 +2,6 @@
     pageEncoding="UTF-8"%>
 <%
 System.out.println("Logout");
-// HttpSession session = request.getSession();
-
 session.removeAttribute("employeeCD");
 session.removeAttribute("name");
 session.removeAttribute("storeCD");

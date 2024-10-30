@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
 
 *{
     padding: 0;
     margin: 0;
-     font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-family: 'Noto Serif JP', sans-serif;
 }
 
 .contents{
@@ -12,80 +12,106 @@
 
 .login_pic{
     position: relative;
-    width: 100vw;
+    width: 70vw;
     height: 100vh;
+    left: 30vw;
+    z-index: 1;
+}
+
+.back{
+    position: relative;
+    width: 30vw;
+    height: 101vh;
+    top: -101vh;
+    background-color: #3da6a6;
+    z-index: 5;
 }
 
 .main{
-    position: absolute;
-    width: 55%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: #c1d3d494;
+    position: relative;
+    width: 50vw;
+    height: 90vh;
+    top: -196vh;
+    left: 5vw;
+    background-color: #cef2ef;
     filter: drop-shadow(0 0 20px #006d7b);
-    /* border-radius: 10%; */
+    z-index: 99;
 }
 
 h2{
     position: absolute;
     top: 20%;
     left: 40%;
+    font-size: 2.5em;
+    color: #3da6a6;
 }
 
-.employeeCD{
-    
-    
-}
-
-.employeeCDLabel{
+.inputArea{
     position: absolute;
-    display: block;
-    top: 160px;
-    left: 15%;
+    top: 35%;
+    left: 30%;
+}
+
+.employeeCD_icon{
+    position: absolute;
     font-size: 1.5em;
+    color: #3da6a6;
 }
 
 .employeeCDBox{
     position: absolute;
-    display: block;
-    top: 190px;
-    left: 15%;
+    border: none;
+    padding-left: 30px;
     font-size: 1.5em;
-    border-radius: 15px;
-    background-color: #ffffff70;
+    border-bottom: 2px solid #3da6a6;
+    background-color: #ffffff00;
+    width:23vw;
+    /* line-height: 20px; */
 }
 
-.passLabel{
+.pass_icon{
     position: absolute;
-    display: block;
-    top: 230px;
-    left: 15%;
+    top: 10vh;
     font-size: 1.5em;
+    color: #3da6a6;
 }
 
 .passBox{
     position: absolute;
-    display: block;
-    top: 260px;
-    left: 15%;
+    border:none;
+    top: 10vh;
+    padding-left: 30px;
     font-size: 1.5em;
-    border-radius: 15px;
-    background-color: #ffffff70;
+    border-bottom: 2px solid #3da6a6;
+    background-color: #07d3d600;
+    width:23vw;
+}
+
+input:focus {
+    outline: none;
+    border: none;
+    border-bottom: 4px solid #3da6a6;
+    border-radius: 10px;
 }
 
 button{
     position: absolute;
-    width: 57%;
+    border: none;
+    width: 20vw;
     height: 40px;
     padding: 10px 20px;
-    top: 70%;
-    left: 15%;
-    background-color: white;
-    color: #b8d3d7;
+    top: 25vh;
+    left: 1vw;
     line-height: 20px;
-    padding-left:  20px;
-    padding-right:  20px;
-    font-size: 1.5em;
+    font-size: 1.1em;
     border-radius: 15px;
+    background-color: #3da6a6 ;
+    color: #cef2ef;
+}
+
+button:hover{
+    outline: 3px solid #3da6a6;
+    /* border: 1px solid #d3e4e5; */
+    background-color: #bddbd8;
+    color: #3da6a6;
 }

@@ -12,6 +12,7 @@ const hireDate = document.getElementById("hireDate");
 const agreements = document.getElementById("36Agreements");
 const agreementsValue = document.getElementById("36AgreementsValue");
 console.log(agreementsValue.value);
+const activeList = document.getElementById("empRegisterLi");
 
 const identifyPosition = () => {
   while (positionEl.firstChild) {
@@ -224,6 +225,7 @@ const generatePassword = (length) => {
 
 window.addEventListener("DOMContentLoaded", () => {
   emailjs.init(API_CONFIG.USER_ID);
+  activeList.classList.add("active");
 });
 
 registerBtn.addEventListener("click", function () {
