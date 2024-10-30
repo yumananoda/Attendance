@@ -55,7 +55,7 @@ System.out.println("isAdmin:" + isAdmin);
 			<% if (!applicationListOfUnapproved.isEmpty()) { %>
 				<table>
 					<tr>
-						<th></th>
+						<th>ID</th>
 						<th>氏名</th>
 						<th>役職</th>
 						<th>所属店舗</th>
@@ -82,7 +82,7 @@ System.out.println("isAdmin:" + isAdmin);
 							String holidayStatus2 = holidayStatus.getLabel();
 						%>
 						<tr>
-							<td></td>
+							<td><%= item.getEmployeeCD() %></td>
 							<td><%= item.getName() %></td>
 							<td><%= position2 %></td>
 							<td><%= storeName2 %></td>
@@ -116,7 +116,7 @@ System.out.println("isAdmin:" + isAdmin);
 			<% if (!applicationListOfApproved.isEmpty()) { %>
 				<table>
 					<tr>
-						<th></th>
+						<th>ID</th>
 						<th>氏名</th>
 						<th>役職</th>
 						<th>所属店舗</th>
@@ -124,7 +124,6 @@ System.out.println("isAdmin:" + isAdmin);
 						<th>事由</th>
 						<th>申請日</th>
 						<th>備考</th>
-						<th></th>
 					</tr>
 					<%  for(ApplicationBean item : applicationListOfApproved){ %>
 					<% 
@@ -143,7 +142,7 @@ System.out.println("isAdmin:" + isAdmin);
 						String holidayStatus2 = holidayStatus.getLabel();
 					%>
 						<tr>
-							<td></td>
+							<td><%= item.getEmployeeCD() %></td>
 							<td><%= item.getName() %></td>
 							<td><%= position2 %></td>
 							<td><%= storeName2 %></td>
@@ -151,7 +150,6 @@ System.out.println("isAdmin:" + isAdmin);
 							<td><%= item.getReason() %></td>
 							<td><%= formattedDate %></td>
 							<td><%= item.getNote() %></td>
-							<td></td>
 						</tr>
 					<% } %>
 				</table>
@@ -163,7 +161,7 @@ System.out.println("isAdmin:" + isAdmin);
 			<% if (!applicationListOfRejected.isEmpty()) { %>
 				<table>
 					<tr>
-						<th></th>
+						<th>ID</th>
 						<th>氏名</th>
 						<th>役職</th>
 						<th>所属店舗</th>
@@ -171,7 +169,6 @@ System.out.println("isAdmin:" + isAdmin);
 						<th>事由</th>
 						<th>申請日</th>
 						<th>備考</th>
-						<th></th>
 					</tr>
 					<%  for(ApplicationBean item : applicationListOfRejected){ %>
 					<% 
@@ -190,7 +187,7 @@ System.out.println("isAdmin:" + isAdmin);
 						String holidayStatus2 = holidayStatus.getLabel();
 					%>
 						<tr>
-							<td></td>
+							<td><%= item.getEmployeeCD() %></td>
 							<td><%= item.getName() %></td>
 							<td><%= position2 %></td>
 							<td><%= storeName2 %></td>
@@ -198,7 +195,6 @@ System.out.println("isAdmin:" + isAdmin);
 							<td><%= item.getReason() %></td>
 							<td><%= formattedDate %></td>
 							<td><%= item.getNote() %></td>
-							<td></td>
 						</tr>
 					<% } %>
 				<% }else{ %>

@@ -22,10 +22,24 @@ body{
     left: 30%;
     padding: 2%;
     z-index: 0;
+    background-color: #f7ffff;
 }
 
 h1{
     background-color: #ffffff;
     position: sticky;
     top: 0;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+th, td{
+    padding: 0 10px;
+    border: 2px solid #3da6a6;
+}
+
+.tab-contents, .content.is-display {
+    width: max-content;
 }

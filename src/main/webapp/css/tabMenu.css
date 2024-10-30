@@ -29,6 +29,7 @@
 
 .tab-contents {
     border-top: none;
+    /* width: max-content; */
     background: #d8eded;
     border-radius: 20px;
 }
@@ -42,12 +43,12 @@
 
 .content.is-display {
     display: flex;
+    /* width: max-content; */
     flex-direction: column;
     padding: 20px;
     padding-bottom: 50px;
     margin-top: 20px;
     outline: 2px solid #3da6a6;
     border-radius: 20px;
-    
+    white-space: nowrap;
 }
-
