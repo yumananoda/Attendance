@@ -8,6 +8,11 @@ body{
     position: relative;
     width: 100vw;
     height: 100vh;
+    color: #0b4242;
+}
+
+.contents{
+    background-color: #f7ffff;
 }
 
 .sidebar{
@@ -22,4 +27,59 @@ body{
     left: 30%;
     padding: 2%;
     z-index: 0;
+}
+
+.tab-01 input:not([type="submit"]), .tab-02 input:not([type="submit"]), 
+textarea{
+    background: #f4f5fa;
+    border: 2px solid #93afaf; 
+    border-radius: 5px;
+    font-size: 1em;
+    color: #0b4242;
+    height: 40px;
+    padding: 20px;
+}
+
+.tab-01 input, .tab-02 input{
+    width: 30%;
+}
+
+input:read-only:not([type="submit"]){
+    color: #638383;
+    background-color: #dcdee8;
+}
+
+.btn{
+    position: relative;
+    border: none;
+    width: 20vw;
+    height: 40px;
+    padding: 10px 20px;
+    top: 2vh;
+    left: 40vw;
+    line-height: 20px;
+    font-size: 1.1em;
+    border-radius: 15px;
+    background-color: #3da6a6 ;
+    color: #cef2ef;
+}
+
+.btn:hover{
+    outline: 3px solid #3da6a6;
+    /* border: 1px solid #d3e4e5; */
+    background-color: #bddbd8;
+    color: #3da6a6;
+}
+
+.checkboxArea{
+    padding: 10px 0;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+.tr, td{
+    padding: 0 10px;
+    border: 2px solid #3da6a6;
 }

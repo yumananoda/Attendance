@@ -59,17 +59,19 @@ System.out.println("isAdmin:" + isAdmin);
 				</td>
 			</tr>
 		</table>
+		<div class="caution">
+			<h4><span class="icon"><ion-icon name="alert-circle-outline"></ion-icon></span>パスワードの設定時の注意点</h4>
+			<p>・パスワードは8文字以上で設定してください。</p>
+			<p>・英字(半角大文字・小文字)および数字もしくは一部記号が使用できます。</p>
+			<p>※使用可能な記号:@$!%*?&.</p>
+			<p>・英字、数字および記号をそれぞれ1文字以上使用してください。</p>
+		
+		</div>
 		<input type="submit" id="btn" value="確認画面へ" disabled />
 	</form>
-	<div>
-		<h4>パスワードの設定時の注意点</h4>
-		<p>・パスワードは8文字以上で設定してください。</p>
-		<p>・英字(半角大文字・小文字)および数字もしくは一部記号が使用できます。</p>
-		<p>※使用可能な記号:@$!%*?&.</p>
-		<p>・英字、数字および記号をそれぞれ1文字以上使用してください。</p>
-	
-	</div>
 </div>
 <script type="module" src="js/editPassword.js" ></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

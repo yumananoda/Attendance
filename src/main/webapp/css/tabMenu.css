@@ -7,31 +7,47 @@
 }
 
 .tab-button .is-active {
-    background: rgb(201, 211, 243);
-    border: 2px solid rgb(177 166 223);
+    background: #3da6a6;
+    border: 2px solid #3da6a6;
     color: #FFF;
+    border-radius: 50px;
+}
+
+.tab-button{
+    border: 2px solid #3da6a675;
+    border-radius: 50px;
 }
 
 .tab {
     width: calc(100% / 3);
-    border: 2px solid rgb(177 166 223);
+    border: 2px solid#3da6a6;
     padding: 8px;
     border-bottom: none;
+    font-size: 1.1em;
+    border: none;
 }
 
 .tab-contents {
     border-top: none;
-    background: rgb(201, 211, 243);
+    background: #d8eded;
+    border-radius: 20px;
 }
 
 .content {
     display: none;
-    padding: 8px;
+    /* padding: 8px; */
     text-align: left;
+    font-size: 1.1em;
 }
 
 .content.is-display {
-    display: block;
-    border: 2px solid rgb(177 166 223);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    padding-bottom: 50px;
+    margin-top: 20px;
+    outline: 2px solid #3da6a6;
+    border-radius: 20px;
+    
 }
 
