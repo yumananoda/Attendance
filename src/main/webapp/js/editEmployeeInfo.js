@@ -18,6 +18,7 @@ const email = document.createElement("input");
 const storeName = document.createElement("select");
 const hireDate = document.createElement("input");
 const retire = document.createElement("input");
+const activeList = document.getElementById("empSelectLi");
 
 employeeCD.type = "text";
 employeeCD.name = "employeeCD";
@@ -62,6 +63,10 @@ if(employeeInfoEl.retire !== null){
     console.log(retireValue)
     retire.value = retireValue;
 }
+
+window.addEventListener("DOMContentLoaded", () => {
+	activeList.classList.add("active");
+})
 
 const identifyPosition = () => {
     while (positionEl.firstChild) {

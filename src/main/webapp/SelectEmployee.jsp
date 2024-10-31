@@ -28,41 +28,28 @@ System.out.println("isAdmin:" + isAdmin);
 <div class="contents">
 	<div>
 		<label><input type="checkbox" id="retireCheck" />退職済</label>
+		
 		<div id="employed" class="checkbox selected">
-			<table>
-				<%  for(SelectEmployeeBean selectEmployee : selectEmployees){ %>
-				<tr>
-					<th>従業員コード</th>
-					<th>氏名</th>
-					<th></th>
-				</tr>
-				<tr>
-					<td><%= selectEmployee.getEmployeeCD() %></td>
-					<td><%= selectEmployee.getName() %></td>
-					<td><a href="DispShiftRegisterServlet?employeeCD=<%= selectEmployee.getEmployeeCD() %>">固定シフト登録</a></td>
-					<td><a href="DispShiftChangeServlet?employeeCD=<%= selectEmployee.getEmployeeCD() %>">日時指定シフト変更</a></td>
-					<td><a href="DispEditEmployeeInfoServlet?employeeCD=<%= selectEmployee.getEmployeeCD() %>">従業員情報変更</a></td>
-					<td><a href="DispTimeRecordServlet?employeeCD=<%= selectEmployee.getEmployeeCD() %>&name=<%= selectEmployee.getName() %>">勤怠状況</a></td>
-				</tr>
-			</table>
+			<%  for(SelectEmployeeBean selectEmployee : selectEmployees){ %>
+			<div class="current">
+				<%= selectEmployee.getEmployeeCD() %>
+				<%= selectEmployee.getName() %>
+				<a href="DispShiftRegisterServlet?employeeCD=<%= selectEmployee.getEmployeeCD() %>">固定シフト登録</a>
+				<a href="DispShiftChangeServlet?employeeCD=<%= selectEmployee.getEmployeeCD() %>">日時指定シフト変更</a>
+				<a href="DispEditEmployeeInfoServlet?employeeCD=<%= selectEmployee.getEmployeeCD() %>">従業員情報変更</a>
+				<a href="DispTimeRecordServlet?employeeCD=<%= selectEmployee.getEmployeeCD() %>&name=<%= selectEmployee.getName() %>">勤怠状況</a>
+			</div>
 			<% } %>
 		</div>
 	
 		<div id="retired" class="checkbox">
-			<table>
-				<tr>
-					<th>従業員コード</th>
-					<th>氏名</th>
-					<th></th>
-				</tr>
-				<%  for(SelectEmployeeBean selectRetireEmployee : selectRetireEmployees){ %>
-				<tr>
-					<td><%= selectRetireEmployee.getEmployeeCD() %></td>
-					<td><%= selectRetireEmployee.getName() %></td>
-					<td><a href="DispEditEmployeeInfoServlet?employeeCD=<%= selectRetireEmployee.getEmployeeCD() %>">従業員情報変更</a></td>
-					<td><a href="DispTimeRecordServlet?employeeCD=<%= selectRetireEmployee.getEmployeeCD() %>&name=<%= selectRetireEmployee.getName() %>">勤怠状況</a></td>
-				</tr>
-			</table>
+			<%  for(SelectEmployeeBean selectRetireEmployee : selectRetireEmployees){ %>
+			<div class="retire">
+				<%= selectRetireEmployee.getEmployeeCD() %>
+				<%= selectRetireEmployee.getName() %>
+				<a href="DispEditEmployeeInfoServlet?employeeCD=<%= selectRetireEmployee.getEmployeeCD() %>">従業員情報変更</a>
+				<div><a href="DispTimeRecordServlet?employeeCD=<%= selectRetireEmployee.getEmployeeCD() %>&name=<%= selectRetireEmployee.getName() %>">勤怠状況</a>
+			</div>
 			<% } %>
 		</div>
 	</div>	

@@ -32,8 +32,8 @@ body{
 
 .tab-01 input:not([type="submit"]), .tab-02 input:not([type="submit"]), 
 textarea{
-    background: #f4f5fa;
-    border: 1px solid #b6bacf; 
+    background-color: #f4f5fa;
+    border: 1px solid #c0c4da; 
     border-radius: 5px;
     font-size: 1em;
     color: #0b4242;

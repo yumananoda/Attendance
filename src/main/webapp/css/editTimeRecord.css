@@ -12,6 +12,7 @@ body{
 
 .contents{
     background-color: #f7ffff;
+    color: #0b4242;
 }
 
 .sidebar{
@@ -20,7 +21,7 @@ body{
 
 .contents{
     width: 70%;
-    height: auto;
+    height: 100vh;
     position: relative;
     top: 0;
     left: 30%;
@@ -29,7 +30,6 @@ body{
 }
 
 h1{
-    background-color: #ffffff;
     position: sticky;
     top: 0;
 }

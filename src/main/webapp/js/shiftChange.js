@@ -20,6 +20,7 @@ const changeData = [];
 const errorEl = document.getElementById("error");
 const earliestTimeString = "09:30";
 const latestTimeString = "21:30";
+const activeList = document.getElementById("empSelectLi");
 
 
 
@@ -35,7 +36,7 @@ let selectValue = null;
 let startDate = null;
 let endDate = null;
 
-document.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("DOMContentLoaded", function () {
     const formattedDate = `${currentYear}-${String(currentMonth).padStart(2, "0")}-${String(currentDate).padStart(2, "0")}`;
     selectDate.value = formattedDate;
     selectDate.min = formattedDate;
@@ -44,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }else{
         selectDuration = `${currentYear}10`
     }
+    activeList.classList.add("active");
     selectDay = new Date(formattedDate).getDay();
     checkShift();
     dispChangeHistory();
@@ -136,6 +138,7 @@ const dispChangeHistory = () => {
     console.log(filterAddExceptionShiftData);
     if(filterAddExceptionShiftData.length !== 0){
         const category = document.createElement("h2");
+        const table = document.createElement("table");
         category.innerText = "シフト追加";
         const tr1 = document.createElement("tr");
         const th1_1 = document.createElement("th");
@@ -162,7 +165,8 @@ const dispChangeHistory = () => {
             tr.appendChild(td1);
             tr.appendChild(td2);
             tr.appendChild(td3);
-            addShift.appendChild(tr);
+            table.appendChild(tr);
+            addShift.appendChild(table);
         }
         changeHistory.appendChild(addShift);
     }
@@ -171,6 +175,7 @@ const dispChangeHistory = () => {
     console.log(filterRemoveExceptionShiftData);
     if(filterRemoveExceptionShiftData.length !== 0){
         const category = document.createElement("h2");
+        const table = document.createElement("table");
         category.innerText = "シフト削除";
         const tr2 = document.createElement("tr");
         const th2_1 = document.createElement("th");
@@ -197,7 +202,8 @@ const dispChangeHistory = () => {
             tr.appendChild(td1);
             tr.appendChild(td2);
             tr.appendChild(td3);
-            removeShift.appendChild(tr);
+            table.appendChild(tr);
+            removeShift.appendChild(table);
         }
         changeHistory.appendChild(removeShift);
     }
@@ -206,6 +212,7 @@ const dispChangeHistory = () => {
     console.log(filterChangeExceptionShiftData);
     if(filterChangeExceptionShiftData.length !== 0){
         const category = document.createElement("h2");
+        const table = document.createElement("table");
         category.innerText = "シフト時間変更";
         const tr3 = document.createElement("tr");
         const th3_1 = document.createElement("th");
@@ -232,7 +239,8 @@ const dispChangeHistory = () => {
             tr.appendChild(td1);
             tr.appendChild(td2);
             tr.appendChild(td3);
-            changeShift.appendChild(tr);
+            table.appendChild(tr);
+            changeShift.appendChild(table);
         }
         changeHistory.appendChild(changeShift);
     }

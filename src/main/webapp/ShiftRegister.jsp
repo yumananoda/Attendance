@@ -15,7 +15,7 @@ System.out.println("isAdmin:" + isAdmin);
 <title>固定シフト登録</title>
 <link rel="stylesheet" href="css/shiftRegister.css">
 <link rel="stylesheet" href="css/modal.css">
-<link rel="stylesheet" href="css/shiftChange.css">
+<%-- <link rel="stylesheet" href="css/shiftChange.css"> --%>
 </head>
 <body>
 <div class="sidebar">
@@ -29,15 +29,15 @@ System.out.println("isAdmin:" + isAdmin);
 	<h1><%= employeeCD %> <%= name %></h1>
 	<input id="employeeCD" type="hidden" value=<%= employeeCD %> />
 	<input id="shift" type="hidden" value=<%= shift %> />
-	<div id="selectDuration">
+	<div id="selectDuration" class="selectDuration">
 		<span class="btn-monthMove prev">＜</span>
 		<span id="year"></span>
 		<span id="month"></span>
 		<span class="btn-monthMove next">＞</span>
 	</div>
-	<div id="selectWeek"></div>
-	<div id="DispDailyEl"></div>
-	<div id="error">
+	<div id="selectWeek" class="selectWeek" ></div>
+	<div id="DispDailyEl" class"DispDailyEl></div>
+	<div id="error" class="error">
 		<% if(request.getAttribute("message") != null){ %>
 		<%= request.getAttribute("message") %>
 		<% } %>

@@ -32,7 +32,7 @@ System.out.println("isAdmin:" + isAdmin);
 		<input id="exceptionShift" type="hidden" value=<%= exceptionShift %> />
 		
 		<div>
-			<select id="application_category" name="application_category" required >
+			<select id="application_category" class="category" name="application_category" required >
 				<option value="">--申請区分を選択してください--</option>
 				<option value="addShift">シフトに追加</option>
 				<option value="removeShift">シフトから削除</option>
@@ -41,9 +41,9 @@ System.out.println("isAdmin:" + isAdmin);
 		</div>
 	
 		<div id="selectChengeDate">
-			<input type="date" id="changeDete" name="changeDete" required />
-			<input type="time" id="changeTimeStart" name="changeTimeStart" required />~
-			<input type="time" id="changeTimeEnd" name="changeTimeEnd" required />
+			<input type="date" id="changeDete" class="dateTime" name="changeDete" required />
+			<input type="time" id="changeTimeStart" class="dateTime" name="changeTimeStart" required />~
+			<input type="time" id="changeTimeEnd" class="dateTime" name="changeTimeEnd" required />
 		</div>
 	
 		
@@ -53,13 +53,14 @@ System.out.println("isAdmin:" + isAdmin);
 			<% } %>
 		</div>
 		<div id="btnArea" class="btnArea">
-			<input type="reset" value="リセット" />
-			<button id="registerBtn">登録</button>
+			<input type="reset" class="btn resetBtn" value="リセット" />
+			<button id="registerBtn" class="btn">登録<span class="icon icon-register"><ion-icon name="chevron-forward-circle-outline"></ion-icon></span></button>
+			
 		</div>
-		<div id="changeHistory">
-			<div id="addShift"></div>
-			<div id="removeShift"></div>
-			<div id="changeShift"></div>
+		<div id="changeHistory" class="changeHistory">
+			<div id="addShift" class="addShift"></div>
+			<div id="removeShift" class="removeShift"></div>
+			<div id="changeShift" class="changeShift"></div>
 		</div>
 	</form>
 	<div id="layer" class="layer">
@@ -79,5 +80,7 @@ System.out.println("isAdmin:" + isAdmin);
 </div>
 <script type="module" src="js/const.js" ></script>
 <script type="module" src="js/shiftChange.js" ></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

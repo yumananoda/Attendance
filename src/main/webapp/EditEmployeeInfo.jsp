@@ -26,44 +26,43 @@
 	<h1>従業員情報変更</h1>
 	<p>以下の項目に変更したい情報をご入力の上、「変更」ボタンをクリックしてください。</p>
 	<input type="hidden" id="employeeInfo" value=<%= employeeInfo %> />
-	<form action="EditEmployeeInfoConfirmServlet" method="post" id="editForm">
-		<table>
-			<tr>
-				<th>従業員番号</th>
-				<td id="employeeCD"></td>
-			</tr>
-			<tr>
-				<th>氏名</th>
-				<td id="name"></td>
-			</tr>
-			<tr>
-				<th>メールアドレス</th>
-				<td id="email"></td>
-			</tr>
-			<tr>
-				<th>店舗名</th>
-				<td id="storeName"></td>
-			</tr>
-			<tr>
-				<th>入社日</th>
-				<td id="hireDate"></td>
-			</tr>
-			<tr>
-				<th>役職</th>
-				<td id="position"></td>
-			</tr>
-			<tr>
-				<th>退職日</th>
-				<td id="retire"></td>
-			</tr>
-		</table>
-		<input type="submit" value="確認画面へ">
+	<form action="EditEmployeeInfoConfirmServlet" method="post" id="editForm"> 
+		<div class="input">
+			<lavel>従業員番号</lavel>
+			<p id="employeeCD"></p>
+		</div>
+		<div class="input">
+			<lavel>氏名</lavel>
+			<p id="name"></p>
+		</div>
+		<div class="input">
+			<lavel>メールアドレス</lavel>
+			<p id="email"></p>
+		</div>
+		<div class="input">
+			<lavel>店舗名</lavel>
+			<p id="storeName"></p>
+		</div>
+		<div class="input">
+			<lavel>入社日</lavel>
+			<p id="hireDate"></p>
+		</div>
+		<div class="input">
+			<lavel>役職</lavel>
+			<p id="position"></p>
+		</div>
+		<div class="input">
+			<lavel>退職日</lavel>
+			<p id="retire"></p>
+		</div>
+
+		<button type="reset" id="resetBtn" class="btn">リセット</button>
+		<input type="submit" class="btn" value="確認画面へ">
 	</form>
 	<%-- <form action="DispEmployeeRetireServlet" method="post">
 		<input type="submit" value="退職手続き" />
 		<input type="hidden" value=<%= employeeInfo.employeeCD %> />
 	</form> --%>
-	<button type="reset" id="resetBtn">リセット</button>
 </div>
 <script type="module" src="js/const.js" ></script>
 <script type="module" src="js/editEmployeeInfo.js" ></script>

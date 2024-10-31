@@ -8,6 +8,7 @@ body{
     position: relative;
     width: 100vw;
     height: 100vh;
+    color: #0b4242;
 }
 
 .sidebar{
@@ -16,7 +17,7 @@ body{
 
 .contents{
     width: 70%;
-    height: auto;
+    height: 100vh;
     position: relative;
     top: 0;
     left: 30%;
@@ -26,7 +27,63 @@ body{
 }
 
 h1{
-    background-color: #ffffff;
     position: sticky;
     top: 0;
+}
+
+.category{
+    height: 40px;
+    font-size: 0.8em;
+    padding: 2px;
+    margin-bottom: 15px;
+    /* background-color: #f4f5fa; */
+    border: 1px solid #c0c4da; 
+    border-radius: 5px;
+}
+
+.dateTime{
+    height: 40px;
+    padding: 2px;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    /* background-color: #f4f5fa; */
+    border: 1px solid #c0c4da; 
+    border-radius: 5px
+}
+
+.btn{
+    position: relative;
+    border: none;
+    width: 10vw;
+    height: 40px;
+    /* padding: 10px 20px; */
+    top: 2vh;
+    left: 40vw;
+    line-height: 20px;
+    font-size: 1em;
+    border-radius: 15px;
+    background-color: #3da6a6 ;
+    color: #cef2ef;
+}
+
+.btn:hover{
+    outline: 3px solid #3da6a6;
+    /* border: 1px solid #d3e4e5; */
+    background-color: #bddbd8;
+    color: #3da6a6;
+} 
+
+.changeHistory{
+    position: relative;
+    top: 10vh;
+}
+
+.addShift{
+    margin-bottom: 50px;
+}
+
+table{
+    border-collapse: collapse;
+    margin: 10px;
+    white-space: nowrap;
 }

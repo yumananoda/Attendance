@@ -15,6 +15,7 @@ const earliestTimeString = "09:30";
 const latestTimeString = "21:30";
 console.log("employeeCD: ", employeeCD);
 console.log("shift: ", shift);
+const activeList = document.getElementById("empSelectLi");
 
 let currentYear = null;
 let DispStartMonth = null;
@@ -45,6 +46,7 @@ const dispSelectDay = () => {
     const dayBtn = document.createElement("button");
     dayBtn.innerText = DAY_TEXTS[day];
     dayBtn.value = day;
+    dayBtn.classList.add("dayBtn");
     selectWeekEl.appendChild(dayBtn);
 
     durationIndex = shift.findIndex(
@@ -134,10 +136,18 @@ const dispDailyTime = () => {
     });
   };
 
+  const table = document.createElement("table");
   for (let i = 0; i < durationShift.length; i++) {
     const { shift_day, start_time, end_time } = durationShift[i];
-    const DailyEl = document.createElement("div");
-    DailyEl.id = shift_day;
+    const tr = document.createElement("tr");
+    const td1 = document.createElement("td");
+    td1.classList.add("dayData");
+    const td2 = document.createElement("td");
+    const td3 = document.createElement("td");
+    td1.id = shift_day;
+
+    // const DailyEl = document.createElement("div");
+    // DailyEl.classList.add("dailyDiv");
     const dayTextEl = document.createElement("p");
     dayTextEl.innerText = DAY_TEXTS[shift_day];
 
@@ -154,50 +164,75 @@ const dispDailyTime = () => {
     startTimeBox.addEventListener("change", (e) => {
       console.log("e: ", e.target.value);
       const index = durationShift.findIndex(
-        ({ shift_day }) => shift_day === Number(DailyEl.id)
+        ({ shift_day }) => shift_day === Number(td1.id)
       );
       console.log(index);
       if (index !== -1) {
         durationShift[index].start_time = e.target.value;
       }
 
-      const timeString = startTimeBox.value;
+      const startTimeString = startTimeBox.value;
+      const endTimeString = endTimeBox.value;
       // const [hours, minutes] = timeString.split(":").map(Number);
       // console.log(hours);
-      const inputTime = convertToTime(timeString);
+      const startInputTime = convertToTime(startTimeString);
+      const endInputTime = convertToTime(endTimeString);
       const earliestTime = convertToTime(earliestTimeString);
       const latestTime = convertToTime(latestTimeString);
       console.log(earliestTimeString);
       console.log(latestTimeString);
-      if (inputTime < earliestTime || inputTime > latestTime) {
+      if (startInputTime < earliestTime || startInputTime > latestTime || endInputTime < earliestTime || endInputTime > latestTime) {
         errorEl.innerText = "営業時間外の時刻が入力されています。";
         registerBtn.disabled = true;
       } else {
         errorEl.innerText = "";
         registerBtn.disabled = false;
       }
+      console.log(startInputTime);
+      console.log(endInputTime);
       console.log(typeof startTimeBox.value);
       console.log(durationShift);
       console.log(shift);
       checkPrescribed();
     });
 
+    td1.appendChild(dayTextEl);
+    td2.appendChild(startTimeBox);
+    td3.appendChild(endTimeBox);
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+    table.appendChild(tr);
+
     endTimeBox.addEventListener("change", (e) => {
       console.log("e: ", e.target.value);
       const index = durationShift.findIndex(
-        ({ shift_day }) => shift_day === Number(DailyEl.id)
+        ({ shift_day }) => shift_day === Number(td1.id)
       );
       if (index !== -1) {
         durationShift[index].end_time = e.target.value;
       }
-      console.log(durationShift);
-      console.log(shift);
+      
+      const startTimeString = startTimeBox.value;
+      const endTimeString = endTimeBox.value;
+      // const [hours, minutes] = timeString.split(":").map(Number);
+      // console.log(hours);
+      const startInputTime = convertToTime(startTimeString);
+      const endInputTime = convertToTime(endTimeString);
+      const earliestTime = convertToTime(earliestTimeString);
+      const latestTime = convertToTime(latestTimeString);
+      console.log(earliestTimeString);
+      console.log(latestTimeString);
+      if (startInputTime < earliestTime || startInputTime > latestTime || endInputTime < earliestTime || endInputTime > latestTime) {
+        errorEl.innerText = "営業時間外の時刻が入力されています。";
+        registerBtn.disabled = true;
+      } else {
+        errorEl.innerText = "";
+        registerBtn.disabled = false;
+      }
       checkPrescribed();
     });
-    DailyEl.appendChild(dayTextEl);
-    DailyEl.appendChild(startTimeBox);
-    DailyEl.appendChild(endTimeBox);
-    DispDailyEl.appendChild(DailyEl);
+    DispDailyEl.appendChild(table);
   }
 
   console.log(DispDailyEl.children.length);
@@ -218,6 +253,7 @@ window.addEventListener("DOMContentLoaded", () => {
   } else {
     DispStartMonth = 10;
   }
+  activeList.classList.add("active");
   getCurrent(currentYear, DispStartMonth);
   dispSelectDay();
   dispDailyTime();

@@ -14,6 +14,7 @@ const afterTimeArea = document.getElementById("afterTimeArea");
 const errorEl = document.getElementById("error");
 const layer = document.getElementById("layer");
 const closeBtn = document.getElementById("closeBtn");
+const activeList = document.getElementById("empSelectLi");
 
 const timeRecord = [];
 
@@ -30,6 +31,10 @@ beforeClockInTime.value = `${String(inTime.getHours()).padStart(2, "0")}:${Strin
 beforeClockOutTime.value = `${String(outTime.getHours()).padStart(2, "0")}:${String(outTime.getMinutes()).padStart(2, "0")}`;
 afterClockInTime.value = `${String(inTime.getHours()).padStart(2, "0")}:${String(inTime.getMinutes()).padStart(2, "0")}`;
 afterClockOutTime.value = `${String(outTime.getHours()).padStart(2, "0")}:${String(outTime.getMinutes()).padStart(2, "0")}`;
+
+window.addEventListener("DOMContentLoaded", () => {
+	activeList.classList.add("active");
+})
 
 afterClockOutTime.addEventListener(("change"), () => {
   console.log(afterClockOutTime.value);
