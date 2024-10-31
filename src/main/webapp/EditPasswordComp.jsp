@@ -8,6 +8,7 @@ System.out.println("isAdmin:" + isAdmin);
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="refresh" content="3;url=DispClockServlet">
 <title>パスワード変更完了画面</title>
 <link rel="stylesheet" href="css/editPassword.css">
 </head>
@@ -22,6 +23,9 @@ System.out.println("isAdmin:" + isAdmin);
 <div class="contents">
 	<p>パスワードの変更が完了しました。</p>
 	<p>今後ログインする際には変更後のパスワードをご利用ください。</p>
+	<p>3秒後に打刻画面に自動で移動します。</p>
+    <a href="DispClockServlet">打刻画面へ</a>
 </div>
+<script type="module" src="js/editPasswordConf.js" ></script>
 </body>
 </html>

@@ -115,3 +115,10 @@ button:hover{
     background-color: #bddbd8;
     color: #3da6a6;
 }
+
+.error{
+    position: absolute;
+    top: 70vh;
+    left: 15vw;
+    font-size: 1.1em;
+}

@@ -1,9 +1,13 @@
 import { POSITION_NAME } from "./const.js";
+
+const activeList = document.getElementById("empRegisterLi");
 const employeeArea = document.getElementById("employeeArea");
 const registerForm = document.getElementById("registerForm");
 const INFO = JSON.parse(sessionStorage.getItem("INFO"));
 
 window.addEventListener("DOMContentLoaded", () => {
+  activeList.classList.add("active");
+
   console.log("called");
   console.log("INFO: ", INFO);
   INFO.forEach(({ name, email, password, position, hireDate }) => {

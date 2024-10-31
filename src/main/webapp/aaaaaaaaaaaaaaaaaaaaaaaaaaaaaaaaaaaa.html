@@ -11,11 +11,15 @@ System.out.println("isAdmin:" + isAdmin);
 
 
 
+
+
 <link rel="stylesheet" href="css/editEmployee.css" />
 
 
 
-const activeList = document.getElementById("empSelectLi");
+
+<script type="module" src="js/holidayApplicationConf.js" ></script>
+const activeList = document.getElementById("holidayAppLi");
 
 window.addEventListener("DOMContentLoaded", () => {
 	activeList.classList.add("active");
@@ -70,3 +74,10 @@ ion-icon{
     color: #638383;
     background-color: #dcdee8;
 }
+
+
+
+
+
+<a href="DispSelectEmployeeServlet">従業員選択画面へ</a><br> 
+<a href="DispClockServlet">打刻画面へ</a>

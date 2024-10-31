@@ -31,7 +31,7 @@ System.out.println("isAdmin:" + isAdmin);
 <div class="contents">
 	<form action="HolidayApplicationServlet" method="post">
 		<input type="hidden" name="employeeCD" value=<%= employeeCD %> />
-		<div>
+		<div class="">
 			<label form="name">氏名:</label>
 			<input type="text" id="name" name="name" value=<%= name %> readonly />
 		</div>
@@ -57,5 +57,6 @@ System.out.println("isAdmin:" + isAdmin);
 		<input type="submit" class="btn" value="申請する" />
 	</form>
 </div>
+<script type="module" src="js/holidayApplicationConf.js" ></script>
 </body>
 </html>

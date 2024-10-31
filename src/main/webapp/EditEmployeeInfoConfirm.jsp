@@ -76,5 +76,6 @@
 		<input type="submit" class="btn" value="申請する" />
 	</form>
 </div>
+<script type="module" src="js/selectEmployeeSideMenu.js" ></script>
 </body>
 </html>

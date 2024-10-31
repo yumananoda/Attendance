@@ -27,25 +27,27 @@ System.out.println("isAdmin:" + isAdmin);
 </div>
 <div class="contents">
 	<button id="cross" class="cross"><span class="icon"><ion-icon name="close-outline"></ion-icon></span>従業員選択画面へ</button>
-	<h1><%= employeeCD %> <%= name %></h1>
-	<input id="employeeCD" type="hidden" value=<%= employeeCD %> />
-	<input id="shift" type="hidden" value=<%= shift %> />
-	<div id="selectDuration" class="selectDuration">
-		<span class="btn-monthMove prev">＜</span>
-		<span id="year"></span>
-		<span id="month"></span>
-		<span class="btn-monthMove next">＞</span>
-	</div>
-	<div id="selectWeek" class="selectWeek" ></div>
-	<div id="DispDailyEl" class"DispDailyEl></div>
-	<div id="error" class="error">
-		<% if(request.getAttribute("message") != null){ %>
-		<%= request.getAttribute("message") %>
-		<% } %>
-	</div>
-	<div id="btnArea" class="btnArea">
-		<button id="resetBtn">リセット</button>
-		<button id="registerBtn">登録</button>
+	<div class="main">
+		<h1><%= employeeCD %> <%= name %></h1>
+		<input id="employeeCD" type="hidden" value=<%= employeeCD %> />
+		<input id="shift" type="hidden" value=<%= shift %> />
+		<div id="selectDuration" class="selectDuration">
+			<span class="btn-monthMove prev">＜</span>
+			<span id="year"></span>
+			<span id="month"></span>
+			<span class="btn-monthMove next">＞</span>
+		</div>
+		<div id="selectWeek" class="selectWeek" ></div>
+		<div id="DispDailyEl" class"DispDailyEl></div>
+		<div id="error" class="error">
+			<% if(request.getAttribute("message") != null){ %>
+			<%= request.getAttribute("message") %>
+			<% } %>
+		</div>
+		<div id="btnArea" class="btnArea">
+			<button id="resetBtn">リセット</button>
+			<button id="registerBtn">登録</button>
+		</div>
 	</div>
 	<div id="layer" class="layer">
 		<div class="modal">

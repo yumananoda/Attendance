@@ -6,7 +6,7 @@ const agreements = document.getElementById("agreements").value;
 const timeRecordArea = document.getElementById("timeRecordArea");
 const totalDataArea = document.getElementById("totalDataArea");
 const prescribedArea = document.getElementById("prescribedArea");
-const activeList = document.getElementById("empSelectLi");
+const activeList = document.getElementById("timeLi");
 
 let timeRecordData = document.getElementById("timeRecordHolder").value;
 timeRecordData = JSON.parse(timeRecordData);

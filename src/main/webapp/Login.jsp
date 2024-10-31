@@ -25,7 +25,7 @@
           <input type="password" id="pass" class="passBox" name="password" placeholder="PASSWORD" minlength="8" required />
           <button type="submit" value="login" >Login</button>
         </div>
-        <p>
+        <p class="error">
         <% if(request.getAttribute("message") != null){ %>
         <%= request.getAttribute("message") %>
         <% } %>
