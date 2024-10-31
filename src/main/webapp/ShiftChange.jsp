@@ -25,6 +25,7 @@ System.out.println("isAdmin:" + isAdmin);
 	<% } %>
 </div>
 <div class="contents">
+	<button id="cross" class="cross"><span class="icon"><ion-icon name="close-outline"></ion-icon></span>従業員選択画面へ</button>
 	<h1><%= employeeCD %> <%= name %></h1>
 	<form id="shiftChangeForm" action="ShiftChangeServlet" method="post">
 		<input id="employeeCD" type="hidden" name="employeeCD" value=<%= employeeCD %> />
@@ -54,7 +55,7 @@ System.out.println("isAdmin:" + isAdmin);
 		</div>
 		<div id="btnArea" class="btnArea">
 			<input type="reset" class="btn resetBtn" value="リセット" />
-			<button id="registerBtn" class="btn">登録<span class="icon icon-register"><ion-icon name="chevron-forward-circle-outline"></ion-icon></span></button>
+			<button id="registerBtn" class="btn">登録</button>
 			
 		</div>
 		<div id="changeHistory" class="changeHistory">
@@ -65,7 +66,7 @@ System.out.println("isAdmin:" + isAdmin);
 	</form>
 	<div id="layer" class="layer">
 		<div class="modal">
-			<button id="closeBtn" class="close-button">×</button>
+			<button id="closeBtn" class="close-button"><span class="icon"><ion-icon name="close-outline"></ion-icon></span></button>
 			<div class="modal__content">
 				変更が完了しました。<br>
 				続けて登録・削除を行う場合は左上の×ボタンを押してください。

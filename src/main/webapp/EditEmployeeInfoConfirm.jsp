@@ -14,14 +14,14 @@
 	String retire = (String)request.getAttribute("retire");
 	int positionCD2 = Integer.parseInt(positionCD);
 	int isAdmin = (int)session.getAttribute("isAdmin"); 
-	System.out.println("isAdmin:" + isAdmin);
+	System.out.println("retire:" + retire);
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>従業員情報変更確認画面</title>
-<link rel="stylesheet" href="css/editEmployeeInfo.css" />
+<link rel="stylesheet" href="css/editEmployeeInfoConf.css" />
 </head>
 <body>
 <div class="sidebar">
@@ -68,10 +68,12 @@
 			<input type="hidden" name="position" value=<%= positionCD2 %> />
 		<div>
 			<label form="retire">退職日:</label>
-			<input type="text" id="retire" name="retire" value=<%= retire %> readonly />
+			<% if(!retire.equals("")){ %>
+				<input type="text" id="retire" name="retire" value=<%= retire %> readonly />
+			<% } %>
 		</div>
 		</div>
-		<input type="submit" value="申請する" />
+		<input type="submit" class="btn" value="申請する" />
 	</form>
 </div>
 </body>

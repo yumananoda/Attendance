@@ -26,6 +26,7 @@ System.out.println("isAdmin:" + isAdmin);
 	<% } %>
 </div>
 <div class="contents">
+	<button id="cross" class="cross"><span class="icon"><ion-icon name="close-outline"></ion-icon></span>従業員選択画面へ</button>
 	<h1><%= employeeCD %> <%= name %></h1>
 	<input id="employeeCD" type="hidden" value=<%= employeeCD %> />
 	<input id="shift" type="hidden" value=<%= shift %> />
@@ -48,7 +49,7 @@ System.out.println("isAdmin:" + isAdmin);
 	</div>
 	<div id="layer" class="layer">
 		<div class="modal">
-			<button id="closeBtn" class="close-button">×</button>
+			<button id="closeBtn" class="close-button"><ion-icon name="close-circle-outline"></ion-icon></button>
 			<div class="modal__content">
 				シフトの登録が完了しました。
 				<div>
@@ -61,5 +62,7 @@ System.out.println("isAdmin:" + isAdmin);
 </div>
 <script type="module" src="js/const.js" ></script>
 <script type="module" src="js/shiftRegister.js" ></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>  
 </body>
 </html>

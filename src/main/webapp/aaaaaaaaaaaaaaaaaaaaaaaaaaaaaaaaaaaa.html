@@ -20,3 +20,53 @@ const activeList = document.getElementById("empSelectLi");
 window.addEventListener("DOMContentLoaded", () => {
 	activeList.classList.add("active");
 })
+
+
+
+
+
+
+
+
+
+
+<button id="cross" class="cross"><span class="icon"><ion-icon name="close-outline"></ion-icon></span>従業員選択画面へ</button>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+const cross = document.getElementById("cross");
+cross.addEventListener("click", () => {
+	window.location.href = '/DateTime/DispSelectEmployeeServlet'; // ホーム画面のURLにリダイレクト
+});
+
+
+
+ion-icon{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    top: 5px;
+    padding-right: 10px;
+}
+
+.cross{
+    border: none;
+    border-bottom: 2px solid #3da6a6;
+    background-color: #3da6a600;
+    width: 100%;
+    font-size: 1.2em;
+    text-align: left;
+    margin-bottom: 30px;
+    color: #0b424291;
+}
+
+
+
+
+
+
+.btn:disabled{
+    color: #638383;
+    background-color: #dcdee8;
+}

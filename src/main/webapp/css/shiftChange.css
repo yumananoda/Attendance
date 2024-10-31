@@ -26,6 +26,25 @@ body{
     background-color: #f7ffff;
 }
 
+ion-icon{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    top: 5px;
+    padding-right: 10px;
+}
+
+.cross{
+    border: none;
+    border-bottom: 2px solid #3da6a6;
+    background-color: #3da6a600;
+    width: 100%;
+    font-size: 1.2em;
+    text-align: left;
+    margin-bottom: 30px;
+    color: #0b424291;
+}
+
 h1{
     position: sticky;
     top: 0;
@@ -64,6 +83,11 @@ h1{
     border-radius: 15px;
     background-color: #3da6a6 ;
     color: #cef2ef;
+}
+
+.btn:disabled{
+    color: #638383;
+    background-color: #dcdee8;
 }
 
 .btn:hover{

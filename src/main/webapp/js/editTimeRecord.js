@@ -1,3 +1,4 @@
+const cross = document.getElementById("cross");
 const editTimeRecordForm = document.getElementById("editTimeRecordForm");
 const recordCD = document.getElementById("recordCD").value;
 const clockInTime = document.getElementById("clockInTime").value;
@@ -36,6 +37,10 @@ window.addEventListener("DOMContentLoaded", () => {
 	activeList.classList.add("active");
 })
 
+cross.addEventListener("click", () => {
+	window.location.href = '/DateTime/DispSelectEmployeeServlet'; // ホーム画面のURLにリダイレクト
+});
+
 afterClockOutTime.addEventListener(("change"), () => {
   console.log(afterClockOutTime.value);
   console.log(afterClockInTime.value);
@@ -56,7 +61,7 @@ editTimeRecordForm.addEventListener('submit', (e) => {
   )
   console.log(timeRecord);
   console.log("実行");
-  fetch("/Attendance/EditTimeRecordServlet", {
+  fetch("/DateTime/EditTimeRecordServlet", {
     method: "POST",
     body: JSON.stringify(timeRecord),
   }).finally(() => {

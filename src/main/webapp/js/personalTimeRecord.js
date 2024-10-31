@@ -1,13 +1,12 @@
 import { WEEKS } from "./const.js";
 
-const cross = document.getElementById("cross");
 const employeeCD = document.getElementById("employeeCD").value;
 const name = document.getElementById("name").value;
 const agreements = document.getElementById("agreements").value;
 const timeRecordArea = document.getElementById("timeRecordArea");
 const totalDataArea = document.getElementById("totalDataArea");
 const prescribedArea = document.getElementById("prescribedArea");
-const activeList = document.getElementById("timeLi");
+const activeList = document.getElementById("empSelectLi");
 
 let timeRecordData = document.getElementById("timeRecordHolder").value;
 timeRecordData = JSON.parse(timeRecordData);
@@ -39,10 +38,6 @@ let DispStartMonth = null;
 let dispDuration = null;
 let endDate = null;
 let totalOverMillisecondsOfYear = 0;
-
-cross.addEventListener("click", () => {
-	window.location.href = '/DateTime/DispSelectEmployeeServlet'; // ホーム画面のURLにリダイレクト
-});
 
 const getCurrent = (currentYear, currentMonth) => {
   document.getElementById("year").innerHTML = `${currentYear}年`;
@@ -84,7 +79,6 @@ const getDateAndDay = () => {
   const th8 = document.createElement("th");
   const th9 = document.createElement("th");
   const th10 = document.createElement("th");
-  const th11 = document.createElement("th");
   const th12 = document.createElement("th");
   
   table.classList.add("recordTable");
@@ -98,7 +92,6 @@ const getDateAndDay = () => {
   th8.classList.add("tableHead");
   th9.classList.add("tableHead");
   th10.classList.add("tableHead");
-  th11.classList.add("tableHead");
   th12.classList.add("tableHead");
   
   th1.innerText = "日";
@@ -111,7 +104,6 @@ const getDateAndDay = () => {
   th8.innerText = "退勤予定時間";
   th9.innerText = "所定労働時間";
   th10.innerText = "残業時間";
-  th11.innerText = "処理";
   th12.innerText = "備考";
   trEl.appendChild(th1);
   trEl.appendChild(th2);
@@ -123,8 +115,6 @@ const getDateAndDay = () => {
   trEl.appendChild(th8);
   trEl.appendChild(th9);
   trEl.appendChild(th10);
-  trEl.appendChild(th11);
-  trEl.appendChild(th11);
   trEl.appendChild(th12);
   table.appendChild(trEl);
   timeRecordArea.appendChild(table);
@@ -141,8 +131,6 @@ const getDateAndDay = () => {
     const shiftClockOut = document.createElement("td");
     const shiftClock = document.createElement("td");
     const overTime = document.createElement("td");
-    const edit = document.createElement("td");
-    const editHref = document.createElement("a");
     const note = document.createElement("td");
     date.classList.add("item1");
     week.classList.add("item1");
@@ -154,7 +142,6 @@ const getDateAndDay = () => {
     shiftClockOut.classList.add("item2");
     shiftClock.classList.add("item2");
     overTime.classList.add("item2");
-    edit.classList.add("item2");
     note.classList.add("item2");
 
     let specifiedDate = `${new Date(currentYear, currentMonth - 1, i).getFullYear()} ${new Date(currentYear, currentMonth - 1, i).getMonth()+1} ${new Date(currentYear, currentMonth - 1, i).getDate()}`;
@@ -454,13 +441,6 @@ const getDateAndDay = () => {
       HolidayTimeFlag = "false";
     }
     console.log(HolidayTimeFlag);
-
-    if (findWorkingDate) {
-      editHref.innerText = "勤怠修正";
-      const { recordCD, clockInTime, clockOutTime } = findWorkingDate;
-      editHref.href = `/DateTime/DispEditTimeRecordServlet?employeeCD=${employeeCD}&name=${name}&recordCD=${recordCD}&clockInTime=${clockInTime}&clockOutTime=${clockOutTime}`;
-      edit.appendChild(editHref);
-    }
     
     col.appendChild(date);
     col.appendChild(week);
@@ -472,7 +452,6 @@ const getDateAndDay = () => {
     col.appendChild(shiftClockOut);
     col.appendChild(shiftClock);
     col.appendChild(overTime);
-    col.appendChild(edit);
     col.appendChild(note);
 
     table.appendChild(col);

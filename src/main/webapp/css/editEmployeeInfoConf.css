@@ -26,14 +26,6 @@ body{
     color: #0b4242;
 }
 
-ion-icon{
-    position: relative;
-    width: 20px;
-    height: 20px;
-    top: 5px;
-    padding-right: 10px;
-}
-
 .cross{
     border: none;
     border-bottom: 2px solid #3da6a6;
@@ -51,30 +43,13 @@ h1{
     margin-bottom: 15px;
 }
 
-.input{
-    display: flex;
-    flex-direction: column;
-    white-space: nowrap;
-    margin: 10px;
-    width: 40%;
-}
-
-input:not([type="radio"]):not([type="submit"]) , select{
-    background: #f4f5fa;
-    border: 1px solid #c0c4da; 
-    height: 30px;
-    border-radius: 5px;
-}
-
-input{
+input:not([type="submit"]){
     padding: 10px;
+    border: none;
+    background-color: #ffffff00;
+    font-size: 1.2em;
 }
 
-#position{
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-}
 
 .btn{
     position: relative;

@@ -1,5 +1,6 @@
 import { POSITION_NAME, STORE_NAME } from "./const.js";
 
+const cross = document.getElementById("cross");
 let employeeInfoEl = document.getElementById("employeeInfo");
 employeeInfoEl = JSON.parse(employeeInfoEl.value);
 const employeeCDEL = document.getElementById("employeeCD");
@@ -37,6 +38,11 @@ email.readOnly = true;
 storeName.name = "storeName";
 storeName.value = employeeInfoEl.storeCD;
 const storeKeys = Object.keys(STORE_NAME);
+
+cross.addEventListener("click", () => {
+	window.location.href = '/DateTime/DispSelectEmployeeServlet'; // ホーム画面のURLにリダイレクト
+});
+
 storeKeys.forEach(key => {
     const option = document.createElement("option");
     option.value = key;

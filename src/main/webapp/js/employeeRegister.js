@@ -158,7 +158,7 @@ addBtn.addEventListener("click", async function (event) {
     return;
   }
 
-  fetch("/Attendance/EmployeeRegisterCheckServlet", {
+  fetch("/DateTime/EmployeeRegisterCheckServlet", {
     method: "POST",
     body: inputEmail,
   })
@@ -236,14 +236,14 @@ registerBtn.addEventListener("click", function () {
     INFO[i].password = newPassword;
   }
   console.log(INFO);
-  // fetch("/Attendance/DispEmployeeRegisterComfirmServlet", {
+  // fetch("/DateTime/DispEmployeeRegisterComfirmServlet", {
   //   method: "POST",
   //   body: JSON.stringify(INFO),
   // })
   // .then(
   //   console.log("success")
   // )
-  window.location.href = "/Attendance/EmployeeRegisterConfirm.jsp";	
+  window.location.href = "/DateTime/EmployeeRegisterConfirm.jsp";	
   sessionStorage.setItem("INFO", JSON.stringify(INFO));
   // INFO.forEach(({ name, email }) => {
   //   sendEmail({ name, email });

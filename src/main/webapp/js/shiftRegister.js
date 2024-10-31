@@ -1,5 +1,6 @@
 import { DAYS, DAY_TEXTS } from "./const.js";
 
+const cross = document.getElementById("cross");
 const selectWeekEl = document.getElementById("selectWeek");
 const DispDailyEl = document.getElementById("DispDailyEl");
 const layer = document.getElementById("layer");
@@ -21,6 +22,11 @@ let currentYear = null;
 let DispStartMonth = null;
 let durationIndex = null;
 let dispDuration = null;
+
+
+cross.addEventListener("click", () => {
+  window.location.href = '/DateTime/DispSelectEmployeeServlet'; // ホーム画面のURLにリダイレクト
+});
 
 const getCurrent = (currentYear, DispStartMonth) => {
   document.getElementById("year").innerHTML = `${currentYear}年`;
@@ -298,7 +304,7 @@ registerBtn.addEventListener("click", () => {
     errorEl.innerText = "入力されていない項目があります。";
   } else {
     errorEl.innerText = "";
-    fetch("/Attendance/ShiftRegisterServlet", {
+    fetch("/DateTime/ShiftRegisterServlet", {
       method: "POST",
       body: JSON.stringify(shift),
     }).then((response) => {

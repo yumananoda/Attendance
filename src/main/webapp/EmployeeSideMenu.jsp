@@ -17,31 +17,31 @@ System.out.println("name:" + name);
 <div class="container">
     <div class="sidebar">
         <ul class="sidebarUL">
-            <li class="list active">
+            <li id="homeLi" class="list" value="0">
                 <a href="Home.jsp">
                 <span class="icon"><ion-icon name="hourglass-outline"></ion-icon></span>
                 <span class="title">打刻</span>
                 </a>
             </li>
-            <li class="list">
-                <a href="DispTimeRecordServlet?employeeCD=<%= employeeCD %>">
+            <li id="timeLi" class="list" value=1>
+                <a href="DispPersonalTimeRecordServlet?employeeCD=<%= employeeCD %>">
                 <span class="icon"><ion-icon name="calendar-number-outline"></ion-icon></span>
                 <span class="title">勤怠状況</span>
                 </a>
             </li>
-            <li class="list">
+            <li id="holidayAppLi" class="list" value="2">
                 <a href="DispHolidayApplicationServlet">
                 <span class="icon"><ion-icon name="document-text-outline"></ion-icon></span>
                 <span class="title">有給申請</span>
                 </a>
             </li>
-            <li class="list">
+            <li id="passLi" class="list" value="3">
                 <a href="DispEditPasswordServlet">
                 <span class="icon"><ion-icon name="key-outline"></ion-icon></span>
                 <span class="title">パスワード変更</span>
                 </a>
             </li>
-            <li class="list">
+            <li id="LogoutLi" class="list" value="7">
                 <a href="LogoutServlet">
                 <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
                 <span class="title">ログアウト</span>

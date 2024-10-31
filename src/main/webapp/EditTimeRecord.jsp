@@ -38,6 +38,7 @@ System.out.println("isAdmin:" + isAdmin);
 	%>
 </div>
 <div class="contents">
+	<button id="cross" class="cross"><span class="icon"><ion-icon name="close-outline"></ion-icon></span>従業員選択画面へ</button>
 	<%-- <form action="EditTimeRecordServlet" method="POST" id="editTimeRecordForm"> --%>
 	<form id="editTimeRecordForm">
 		<h1>
@@ -51,24 +52,24 @@ System.out.println("isAdmin:" + isAdmin);
 			<p id="selectDate"></p>
 			<input type="hidden" id="selectDateValue" name="selectDateValue" />
 		</div>
-		<div id="beforeTimeArea">
-			<p>変更前</p>
-			<input type="time" id="beforeClockInTime" name="beforeClockInTime"
-				disabled /> <input type="time" id="beforeClockOutTime"
-				name="beforeClockOutTime" disabled />
-		</div>
-		<div id="afterTimeArea">
-			<p>変更後</p>
-			<input type="time" id="afterClockInTime" name="afterClockInTime"
-				required /> <input type="time" id="afterClockOutTime"
-				name="afterClockOutTime" required />
+		<div class="timeArea">
+			<div id="beforeTimeArea">
+				<p>変更前</p>
+				<input type="time" id="beforeClockInTime" name="beforeClockInTime" disabled /><span>~<span>
+				<input type="time" id="beforeClockOutTime" name="beforeClockOutTime" disabled />
+			</div>
+			<div id="afterTimeArea">
+				<p>変更後</p>
+				<input type="time" id="afterClockInTime" name="afterClockInTime" required /><span>~<span>
+				<input type="time" id="afterClockOutTime" name="afterClockOutTime" required />
+			</div>
 		</div>
 		<div id="error" class="error"></div>
-		<input type="submit" value="変更" />
+		<input type="submit" class="btn" value="変更" />
 	</form>
 	<div id="layer" class="layer">
 		<div class="modal">
-			<button id="closeBtn" class="close-button">✖︎</button>
+			<button id="closeBtn" class="close-button"><span class="icon"><ion-icon name="close-outline"></ion-icon></span></button>
 			<div class="modal__content">
 				打刻時刻の変更が完了しました。
 				<div>
@@ -79,7 +80,9 @@ System.out.println("isAdmin:" + isAdmin);
 		</div>
 	</div>
 </div>
-	<script type="module" src="js/editTimeRecord.js"></script>
-	<script type="module" src="js/const.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script type="module" src="js/editTimeRecord.js"></script>
+<script type="module" src="js/const.js"></script>
 </body>
 </html>

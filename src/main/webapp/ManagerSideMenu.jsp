@@ -23,7 +23,7 @@ System.out.println("name:" + name);
             </a>
         </li>
         <li id="timeLi" class="list" value=1>
-            <a href="DispTimeRecordServlet?employeeCD=<%= employeeCD %>">
+            <a href="DispPersonalTimeRecordServlet?employeeCD=<%= employeeCD %>">
             <span class="icon"><ion-icon name="calendar-number-outline"></ion-icon></span>
             <span class="title">勤怠状況</span>
             </a>

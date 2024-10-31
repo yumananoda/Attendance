@@ -23,6 +23,7 @@
 	<% } %>
 </div>
 <div class="contents">
+	<button id="cross" class="cross"><span class="icon"><ion-icon name="close-outline"></ion-icon></span>従業員選択画面へ</button>
 	<h1>従業員情報変更</h1>
 	<p>以下の項目に変更したい情報をご入力の上、「変更」ボタンをクリックしてください。</p>
 	<input type="hidden" id="employeeInfo" value=<%= employeeInfo %> />
@@ -64,6 +65,8 @@
 		<input type="hidden" value=<%= employeeInfo.employeeCD %> />
 	</form> --%>
 </div>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script type="module" src="js/const.js" ></script>
 <script type="module" src="js/editEmployeeInfo.js" ></script>
 </body>

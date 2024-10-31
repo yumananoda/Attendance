@@ -8,6 +8,7 @@ body{
     position: relative;
     width: 100vw;
     height: 100vh;
+    color: #0b4242;
 }
 
 .sidebar{
@@ -56,40 +57,52 @@ h2{
 
 .btn{
     display: flex;
-    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.addBtn, .registerBtn{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#addEmployee{
+    border: none;
     border-radius: 10px;
     width:100px;
     height: 40px;
-    margin: 0 10px;
-    margin-top: 10vh;
+    margin-right: 10px;
+    padding-left: 10px;
     background-color: #3da6a6 ;
     color: #cef2ef;
 }
 
-.button{
-    background-color: #ff000000;
+#registerBtn{
     border: none;
-    color: #fff;
+    border-radius: 10px;
+    width:100px;
+    height: 40px;
+    padding-left: 10px;
+    background-color: #3da6a6 ;
+    color: #cef2ef;
 }
 
-.addBtn:hover, .registerBtn:hover{
+.addBtn, .registerBtn{
+    position: relative;
+}
+
+.btn span{
+    position: absolute;
+    display: inline-block;
+    top: 10px;
+    left: 15px;
+    color: #cef2ef;
+}
+
+#addEmployee:hover, #registerBtn:hover{
     outline: 3px solid #3da6a6;
     /* border: 1px solid #d3e4e5; */
     background-color: #bddbd8;
     color: #3da6a6;
 }
 
-ion-icon{
-    position: relative;
-    padding-right: 10px;
-    top: 2px;
+#registerBtn:disabled{
+    color: #638383;
+    background-color: #dcdee8;
 }
+

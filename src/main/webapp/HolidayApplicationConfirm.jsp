@@ -18,7 +18,7 @@ System.out.println("isAdmin:" + isAdmin);
 <head>
 <meta charset="UTF-8">
 <title>有給申請確認画面</title>
-<link rel="stylesheet" href="css/holidayApplication.css">
+<link rel="stylesheet" href="css/holidayApplicationConf.css">
 </head>
 <body>
 <div class="sidebar">
@@ -41,8 +41,10 @@ System.out.println("isAdmin:" + isAdmin);
 			<input type="text" id="endDate" name="endDate" value=<%= endDate %> readonly />
 		</div>
 		<div>
-			<label form="reason">申請理由:</label>
-			<input type="text" id="reason" name="reason" value=<%= reason %> readonly />
+			<label form="reason">事由:</label>
+			<% if(!reason.equals("")){ %>
+				<input type="text" id="reason" name="reason" value=<%= reason %> readonly />
+			<% } %>
 		</div>
 		<div>
 			<label form="note">備考:</label>
@@ -52,7 +54,7 @@ System.out.println("isAdmin:" + isAdmin);
 				<input type="text" id="note" name="note" readonly />
 			<% } %>
 		</div>
-		<input type="submit" value="申請する" />
+		<input type="submit" class="btn" value="申請する" />
 	</form>
 </div>
 </body>

@@ -39,7 +39,6 @@
 	<% } %>
 </div>
 <div class="contents">
-    <button id="cross" class="cross"><span class="icon"><ion-icon name="close-outline"></ion-icon></span>従業員選択画面へ</button>
     <h1>勤怠状況 - <%= name %>(従業員コード:<%= employeeCD %>)</h1>
     <div class="main">
         <div>
@@ -65,9 +64,7 @@
         <div id="prescribedArea"></div>
     </div>
 </div>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-<script type="module" src="js/timeRecord.js"></script>
-<script type="module" src="js/const.js" ></script>
+    <script type="module" src="js/personalTimeRecord.js"></script>
+    <script type="module" src="js/const.js" ></script>
 </body>
 </html>

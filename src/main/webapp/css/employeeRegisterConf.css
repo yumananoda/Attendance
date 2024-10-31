@@ -1,0 +1,61 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    color: #0b4242;
+}
+
+.sidebar{
+    z-index:99;
+}
+
+.contents{
+    width: 70%;
+    height: 100vh;
+    position: relative;
+    top: 0;
+    left: 30%;
+    padding: 2%;
+    z-index: 0;
+    background-color: #f7ffff;
+}
+
+h2{
+    position: sticky;
+    top: 0;
+    margin-bottom: 15px;
+}
+
+#employeeArea{
+    /* background-color:red; */
+    margin: 20px 0;
+}
+
+.btn{
+    position: relative;
+    border: none;
+    width: 10vw;
+    height: 40px;
+    top: 2vh;
+    left: 40vw;
+    font-size: 1em;
+    border-radius: 15px;
+    background-color: #3da6a6 ;
+    color: #cef2ef;
+}
+
+.btn:hover{
+    outline: 3px solid #3da6a6;
+    /* border: 1px solid #d3e4e5; */
+    background-color: #bddbd8;
+    color: #3da6a6;
+}
+
+
+

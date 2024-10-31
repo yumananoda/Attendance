@@ -1,3 +1,4 @@
+const cross = document.getElementById("cross");
 const shiftChangeForm = document.getElementById("shiftChangeForm");
 const employeeCD = document.getElementById("employeeCD").value;
 const applicationCategory = document.getElementById("application_category");
@@ -49,6 +50,10 @@ window.addEventListener("DOMContentLoaded", function () {
     selectDay = new Date(formattedDate).getDay();
     checkShift();
     dispChangeHistory();
+});
+
+cross.addEventListener("click", () => {
+	window.location.href = '/DateTime/DispSelectEmployeeServlet'; // ホーム画面のURLにリダイレクト
 });
 
 const convertToTime = (timeString) => {
@@ -257,7 +262,7 @@ registerBtn.addEventListener('click', (e) => {
     )
     console.log(changeData);
     console.log("実行");
-    fetch("/Attendance/ShiftChangeServlet", {
+    fetch("/DateTime/ShiftChangeServlet", {
         method: "POST",
         body: JSON.stringify(changeData),
     })
