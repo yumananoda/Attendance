@@ -14,9 +14,15 @@ import models.HolidayBean;
 
 public class HolidayDao extends CommonDao{
 	public void registerHoliday(int employeeCD, int storeCD, Date startDate, Date endDate, String reason, String note) {
+		System.out.println(employeeCD);
+		System.out.println(storeCD);
+		System.out.println(startDate);
+		System.out.println(endDate);
+		System.out.println(reason);
+		System.out.println(note);
 		String query = "INSERT INTO holiday(employeeCD, storeCD,application_start_date, application_end_date, reason, note) VALUES(?,?,?,?,?,?)";
 		try (Connection con = DriverManager.getConnection(URL, USER, PASS);
-				PreparedStatement statement = con.prepareStatement(query)) {
+			PreparedStatement statement = con.prepareStatement(query)) {
 
 			statement.setInt(1, employeeCD);
 			statement.setInt(2, storeCD);
